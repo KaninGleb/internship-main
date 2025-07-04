@@ -21,6 +21,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.5",
+    "prettier": "3.6.2",
     "react-hook-form": "^7.59.0",
     "typescript": "^5"
   }
