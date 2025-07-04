@@ -20,6 +20,15 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol>
 
+
+        <div>
+          <h1>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor dolorem, doloremque
+            illo illum modi, neque obcaecati quas quo recusandae rerum
+            sed temporibus ullam velit! Aliquam ea eaque in labore molestias.
+          </h1>
+        </div>
+
         <div className={styles.ctas}>
           <a
             className={styles.primary}
