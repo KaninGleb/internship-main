@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@it-incubator/prettier-config": "^0.1.2",
-    "@it-incubator/stylelint-config": "^2.0.0",
     "@reduxjs/toolkit": "^2.8.2",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^20.19.9",
@@ -34,6 +33,9 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "react-hook-form": "^7.62.0",
     "stylelint": "^16.23.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-order": "^7.0.0",
+    "stylelint-prettier": "^5.0.3",
     "tailwindcss": "^4.1.11",
     "tailwindcss-cli": "^0.1.2",
     "typescript": "^5.9.2"
@@ -43,7 +45,8 @@
       "eslint --fix",
       "prettier --write"
     ],
-    ".{css,scss,less}": [
+    "*.{css,scss,less,pcss}": [
+      "stylelint --fix",
       "prettier --write"
     ]
   }

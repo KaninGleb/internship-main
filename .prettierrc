@@ -1,5 +1,6 @@
 {
   "printWidth": 120,
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "@it-incubator/prettier-config": "^0.1.2"
 }
