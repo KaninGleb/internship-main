@@ -2,5 +2,9 @@
   "printWidth": 120,
   "semi": false,
   "singleQuote": true,
-  "@it-incubator/prettier-config": "^0.1.2"
+  "jsxSingleQuote": true,
+  "@it-incubator/prettier-config": "^0.1.2",
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }
