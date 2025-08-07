@@ -1,10 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-    --font-family-display: "Inter", sans-serif;
-    --color-primary: oklch(0.5 0.2 250);
+  --font-family-display: 'Inter', sans-serif;
+  --color-primary: oklch(0.5 0.2 250);
 }
-
 
 /*:root {*/
 /*  --background: #ffffff;*/
