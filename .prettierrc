@@ -3,7 +3,6 @@
   "semi": false,
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "@it-incubator/prettier-config": "^0.1.2",
   "plugins": [
     "prettier-plugin-tailwindcss"
   ]
