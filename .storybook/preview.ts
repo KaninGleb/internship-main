@@ -3,14 +3,6 @@ import type { Preview } from '@storybook/react-vite'
 
 const preview: Preview = {
   parameters: {
-    darkMode: {
-      dark: { ...themes.dark, appBg: 'black' },
-      light: { ...themes.normal, appBg: 'white' },
-
-      darkClass: 'dark',
-      lightClass: 'light',
-      stylePreview: true,
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
