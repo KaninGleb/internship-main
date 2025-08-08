@@ -1,0 +1,93 @@
+/* ---------------------------------------------- */
+
+/* Основная настройка кнопки */
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 182px;
+  height: 36px;
+  padding: 6px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 2px;
+  transform: rotate(0deg);
+  transition:
+    opacity 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* ---------------------------------------------- */
+
+/* Приколы */
+.button:hover {
+  opacity: 0.8;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #2f68cc;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------- */
+
+/* Цвета кнопки */
+.buttonPrimary {
+  color: white;
+  background-color: #397df6;
+}
+
+.buttonSecondary {
+  color: white;
+  background-color: #333;
+}
+
+.buttonDark {
+  color: #397df6;
+  background-color: black;
+  border: 1px solid #397df6;
+}
+
+.buttonDefault {
+  justify-content: flex-start;
+  color: #397df6;
+  background-color: transparent;
+  border: none;
+}
+
+/* ---------------------------------------------- */
+
+/* Размер кнопки */
+.buttonSmall {
+  height: auto;
+  padding: 4px 16px;
+}
+
+.buttonMedium {
+  padding: 6px 24px;
+}
+
+.buttonLarge {
+  height: auto;
+  padding: 8px 32px;
+}
+
+/* ---------------------------------------------- */
+
+/* Disabled state (если нужно отдельно) */
+.buttonDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
