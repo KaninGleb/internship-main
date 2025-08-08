@@ -1,5 +1,5 @@
-import { themes } from 'storybook/theming'
 import type { Preview } from '@storybook/react-vite'
+import '../src/styles/_colors.css'
 
 const preview: Preview = {
   parameters: {
