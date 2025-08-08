@@ -1,0 +1,109 @@
+import { Button } from './Button'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'dark', 'default'],
+      description: 'Вариант стиля кнопки',
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Размер кнопки',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Отключена ли кнопка',
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Состояние загрузки',
+    },
+    onClick: {
+      action: 'clicked',
+      description: 'Обработчик клика',
+    },
+    children: {
+      control: 'text',
+      description: 'Содержимое кнопки',
+    },
+  },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+}
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Primary: Story = {
+  args: {
+    children: 'Text',
+    variant: 'primary',
+    size: 'medium',
+    disabled: false,
+    loading: false,
+  },
+}
+
+export const Secondary: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Secondary Button',
+    variant: 'secondary',
+  },
+}
+
+export const Dark: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Dark Button',
+    variant: 'dark',
+  },
+}
+
+export const Default: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Default Button',
+    variant: 'default',
+  },
+}
+
+export const Small: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Small Button',
+    size: 'small',
+  },
+}
+
+export const Large: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Large Button',
+    size: 'large',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Disabled Button',
+    disabled: true,
+  },
+}
+
+export const Loading: Story = {
+  args: {
+    ...Primary.args,
+    children: 'Loading Button',
+    loading: true,
+  },
+}
