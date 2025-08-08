@@ -1,6 +1,3 @@
-/* ---------------------------------------------- */
-
-/* Основная настройка кнопки */
 .button {
   display: flex;
   justify-content: center;
@@ -24,52 +21,97 @@
   opacity: 1;
 }
 
-/* ---------------------------------------------- */
-
-/* Приколы */
-.button:hover {
-  opacity: 0.8;
-}
-
+/* Main pseudo-classes */
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px #2f68cc;
+  box-shadow: 0 0 0 2px var(--color-info-700);
 }
 
 .button:disabled {
-  opacity: 0.6;
   cursor: not-allowed;
 }
 
 /* ---------------------------------------------- */
 
-/* Цвета кнопки */
+/* Primary */
 .buttonPrimary {
-  color: white;
-  background-color: #397df6;
+  color: var(--color-light-100);
+  background-color: var(--color-info-500);
 }
 
+.buttonPrimary:not(:disabled):hover {
+  background-color: var(--color-info-100);
+}
+
+.buttonPrimary:disabled {
+  background-color: var(--color-info-900);
+}
+
+/* Secondary */
 .buttonSecondary {
-  color: white;
-  background-color: #333;
+  color: var(--color-light-100);
+  background-color: var(--color-dark-500);
 }
 
-.buttonDark {
-  color: #397df6;
-  background-color: black;
-  border: 1px solid #397df6;
+.buttonSecondary:hover {
+  background-color: var(--color-dark-300);
 }
 
+.buttonSecondary:active {
+  background-color: #212121;
+}
+
+.buttonSecondary:focus {
+  background-color: var(--color-dark-700);
+}
+
+.buttonSecondary:disabled {
+  background-color: var(--color-dark-500);
+}
+
+/* Transparent */
+.buttonTransparent {
+  color: var(--color-info-500);
+  border: 1px solid var(--color-info-500);
+}
+
+.buttonTransparent:active {
+  background-color: var(--color-dark-700);
+}
+
+.buttonTransparent:not(:disabled):hover {
+  color: var(--color-info-100);
+}
+
+.buttonTransparent:active {
+  border: 2x solid var(--color-info-500);
+}
+
+.buttonTransparent:disabled {
+  color: var(--color-info-900);
+}
+
+/* Default */
 .buttonDefault {
-  justify-content: flex-start;
-  color: #397df6;
+  width: 100px;
+  color: var(--color-info-500);
   background-color: transparent;
   border: none;
 }
 
-/* ---------------------------------------------- */
+.buttonDefault:active {
+  color: var(--color-info-700);
+}
 
-/* Размер кнопки */
+.buttonDefault:not(:disabled):hover {
+  color: var(--color-info-700);
+}
+
+.buttonDefault:disabled {
+  color: var(--color-info-900);
+}
+
+/* Sizes */
 .buttonSmall {
   height: auto;
   padding: 4px 16px;
@@ -84,10 +126,7 @@
   padding: 8px 32px;
 }
 
-/* ---------------------------------------------- */
-
 /* Disabled state (если нужно отдельно) */
 .buttonDisabled {
-  opacity: 0.6;
   cursor: not-allowed;
 }

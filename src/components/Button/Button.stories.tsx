@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'dark', 'default'],
+      options: ['primary', 'secondary', 'transparent', 'default'],
       description: 'Вариант стиля кнопки',
     },
     size: {
@@ -60,18 +60,18 @@ export const Secondary: Story = {
   },
 }
 
-export const Dark: Story = {
+export const Transparent: Story = {
   args: {
     ...Primary.args,
-    children: 'Dark Button',
-    variant: 'dark',
+    children: 'Button',
+    variant: 'transparent',
   },
 }
 
 export const Default: Story = {
   args: {
     ...Primary.args,
-    children: 'Default Button',
+    children: 'Button',
     variant: 'default',
   },
 }

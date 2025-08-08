@@ -7,7 +7,7 @@ import styles from './Button.module.css'
 type ButtonProps = Partial<{
   children: React.ReactNode
   onClick: () => void
-  variant: 'primary' | 'secondary' | 'dark' | 'default'
+  variant: 'primary' | 'secondary' | 'transparent' | 'default'
   size: 'small' | 'medium' | 'large'
   disabled: boolean
   loading: boolean
@@ -17,8 +17,8 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, variant, size
   const variantClass =
     variant === 'secondary'
       ? styles.buttonSecondary
-      : variant === 'dark'
-        ? styles.buttonDark
+      : variant === 'transparent'
+        ? styles.buttonTransparent
         : variant === 'primary'
           ? styles.buttonPrimary
           : styles.buttonDefault
