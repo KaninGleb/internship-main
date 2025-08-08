@@ -1,0 +1,40 @@
+{
+  "extends": ["stylelint-config-tailwindcss", "stylelint-config-standard", "stylelint-prettier/recommended"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "import-notation": "string",
+    "selector-class-pattern": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind", "apply", "layer", "config", "theme", "screen"]
+      }
+    ],
+    "order/properties-order": [
+      "position",
+      "content",
+      "top",
+      "right",
+      "bottom",
+      "left",
+      "z-index",
+      "display",
+      "flex-direction",
+      "justify-content",
+      "align-items",
+      "gap",
+      "width",
+      "height",
+      "margin",
+      "padding",
+      "font-family",
+      "font-size",
+      "color",
+      "background-color",
+      "border",
+      "border-radius",
+      "transform",
+      "transition"
+    ]
+  }
+}

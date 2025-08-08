@@ -1,0 +1,132 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 182px;
+  height: 36px;
+  padding: 6px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 2px;
+  transform: rotate(0deg);
+  transition:
+    opacity 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Main pseudo-classes */
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-info-700);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------- */
+
+/* Primary */
+.buttonPrimary {
+  color: var(--color-light-100);
+  background-color: var(--color-info-500);
+}
+
+.buttonPrimary:not(:disabled):hover {
+  background-color: var(--color-info-100);
+}
+
+.buttonPrimary:disabled {
+  background-color: var(--color-info-900);
+}
+
+/* Secondary */
+.buttonSecondary {
+  color: var(--color-light-100);
+  background-color: var(--color-dark-500);
+}
+
+.buttonSecondary:hover {
+  background-color: var(--color-dark-300);
+}
+
+.buttonSecondary:active {
+  background-color: #212121;
+}
+
+.buttonSecondary:focus {
+  background-color: var(--color-dark-700);
+}
+
+.buttonSecondary:disabled {
+  background-color: var(--color-dark-500);
+}
+
+/* Transparent */
+.buttonTransparent {
+  color: var(--color-info-500);
+  border: 1px solid var(--color-info-500);
+}
+
+.buttonTransparent:active {
+  background-color: var(--color-dark-700);
+}
+
+.buttonTransparent:not(:disabled):hover {
+  color: var(--color-info-100);
+}
+
+.buttonTransparent:active {
+  border: 2x solid var(--color-info-500);
+}
+
+.buttonTransparent:disabled {
+  color: var(--color-info-900);
+}
+
+/* Default */
+.buttonDefault {
+  width: 100px;
+  color: var(--color-info-500);
+  background-color: transparent;
+  border: none;
+}
+
+.buttonDefault:active {
+  color: var(--color-info-700);
+}
+
+.buttonDefault:not(:disabled):hover {
+  color: var(--color-info-700);
+}
+
+.buttonDefault:disabled {
+  color: var(--color-info-900);
+}
+
+/* Sizes */
+.buttonSmall {
+  height: auto;
+  padding: 4px 16px;
+}
+
+.buttonMedium {
+  padding: 6px 24px;
+}
+
+.buttonLarge {
+  height: auto;
+  padding: 8px 32px;
+}
+
+/* Disabled state (если нужно отдельно) */
+.buttonDisabled {
+  cursor: not-allowed;
+}
