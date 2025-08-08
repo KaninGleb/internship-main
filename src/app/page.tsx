@@ -18,7 +18,9 @@ export default function Home() {
         Button
       </Button>
       <Button variant={'secondary'}>Button</Button>
-      <Button variant={'transparent'} onClick={() => {}}>Button</Button>
+      <Button variant={'transparent'} onClick={() => {}}>
+        Button
+      </Button>
       <Button variant={'default'}>Button</Button>
       <div className='bg-dark-700 p-10 text-white'></div>
 

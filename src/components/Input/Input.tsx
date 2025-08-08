@@ -1,6 +1,5 @@
 'use client'
 
-
 import React from 'react'
 import { FaEye, FaEyeSlash, FaSearch } from 'react-icons/fa'
 import styles from './Input.module.css'

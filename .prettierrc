@@ -3,7 +3,10 @@
   "semi": false,
   "singleQuote": true,
   "jsxSingleQuote": true,
-  "endOfLine": "lf",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+
   "plugins": [
     "prettier-plugin-tailwindcss"
   ]
