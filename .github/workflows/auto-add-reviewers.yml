@@ -16,6 +16,7 @@ jobs:
             const pr = context.payload.pull_request;
             const owner = context.repo.owner;
             const repo = context.repo.repo;
+            const TEAM_LEAD = "KaninGleb";
 
             const collaborators = await github.rest.repos.listCollaborators({
               owner,
@@ -25,7 +26,11 @@ jobs:
 
             const reviewers = collaborators.data
               .map(user => user.login)
-              .filter(login => login !== pr.user.login && !login.endsWith('[bot]'));
+              .filter(login => login !== pr.user.login && login !== TEAM_LEAD && !login.endsWith('[bot]'));
+
+            if (!reviewers.includes(TEAM_LEAD)) {
+              reviewers.unshift(TEAM_LEAD);
+            }
 
             if (reviewers.length === 0) {
               console.log("No reviewers to add.");
