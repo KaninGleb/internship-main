@@ -9,10 +9,11 @@ type ButtonProps = Partial<
     variant: VariantUnitType
     size: SizeUnitType
     loading: boolean
+    className: string
   } & React.ButtonHTMLAttributes<HTMLSelectElement>
 >
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick, variant, size, disabled, loading }: ButtonProps) => {
+export const Button: React.FC<ButtonProps> = ({ children, onClick, variant, size, disabled, loading, className }: ButtonProps) => {
   const variantClass =
     variant === 'secondary'
       ? s.buttonSecondary
@@ -26,7 +27,7 @@ export const Button: React.FC<ButtonProps> = ({ children, onClick, variant, size
 
   return (
     <button
-      className={`${s.button} ${variantClass} ${sizeClass} ${disabledClass}`}
+      className={`${s.button} ${variantClass} ${sizeClass} ${disabledClass} ${className}`}
       onClick={onClick}
       disabled={disabled || loading}
     >

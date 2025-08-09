@@ -13,6 +13,7 @@ type InputPropsType = Partial<{
   label: string
   error: string
   disabled: boolean
+  className: string
 }>
 
 export const Input: React.FC<InputPropsType> = ({
@@ -23,6 +24,7 @@ export const Input: React.FC<InputPropsType> = ({
   label,
   error,
   disabled,
+  className = '',
 }: InputPropsType) => {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -38,9 +40,9 @@ export const Input: React.FC<InputPropsType> = ({
   }
 
   return (
-    <div className={styles.inputContainer}>
+    <div className={`${styles.inputContainer} ${className}`}>
       {label && <label className={styles.label}>{label}</label>}
-      <div className={styles.inputWrapper}>
+      <div className={`${styles.inputWrapper} ${className} `}>
         {type === 'search' && (
           <span className={styles.searchIcon}>
             <FaSearch size={20} color='#8D9094' />
@@ -51,7 +53,7 @@ export const Input: React.FC<InputPropsType> = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={`${styles.input} ${inputErrorClass} ${inputDisabledClass} ${inputSearchClass}`}
+          className={` ${styles.input} ${inputErrorClass} ${inputDisabledClass} ${inputSearchClass} ${className}`}
           disabled={disabled}
         />
         {type === 'password' && (
