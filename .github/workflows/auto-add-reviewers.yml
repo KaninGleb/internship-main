@@ -11,7 +11,7 @@ jobs:
       - name: Add all collaborators as reviewers
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.PAT_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const pr = context.payload.pull_request;
             const owner = context.repo.owner;
