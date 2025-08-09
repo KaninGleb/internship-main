@@ -32,9 +32,13 @@ const meta: Meta<typeof Button> = {
       control: 'text',
       description: 'Содержимое кнопки',
     },
+    className: {
+      control: 'text',
+      description: 'TailWind style',
+    },
   },
   parameters: {
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'black' },
   },
 }
 
