@@ -13,7 +13,15 @@ type ButtonProps = Partial<
   } & React.ButtonHTMLAttributes<HTMLSelectElement>
 >
 
-export const Button: React.FC<ButtonProps> = ({ children, onClick, variant, size, disabled, loading, className }: ButtonProps) => {
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  variant,
+  size,
+  disabled,
+  loading,
+  className,
+}: ButtonProps) => {
   const variantClass =
     variant === 'secondary'
       ? s.buttonSecondary

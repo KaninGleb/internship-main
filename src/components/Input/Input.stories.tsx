@@ -37,8 +37,8 @@ const meta: Meta<typeof Input> = {
     },
     className: {
       control: 'text',
-      description: 'TailWind style'
-    }
+      description: 'TailWind style',
+    },
   },
   parameters: {
     backgrounds: { default: 'black' },
