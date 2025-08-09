@@ -29,7 +29,9 @@ export const Button: React.FC<ButtonProps> = ({
         ? s.buttonTransparent
         : variant === 'primary'
           ? s.buttonPrimary
-          : s.buttonDefault
+          : variant === 'default'
+            ? s.buttonDefault
+            : className
   const sizeClass = size === 'small' ? s.buttonSmall : size === 'large' ? s.buttonLarge : s.buttonMedium
   const disabledClass = disabled || loading ? s.buttonDisabled : ''
 
