@@ -1,0 +1,40 @@
+name: Auto Add Reviewers
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  add_reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add all collaborators as reviewers
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const collaborators = await github.rest.repos.listCollaborators({
+              owner,
+              repo,
+              affiliation: "all"
+            });
+
+            const reviewers = collaborators.data
+              .map(user => user.login)
+              .filter(login => login !== pr.user.login && !login.endsWith('[bot]'));
+
+            if (reviewers.length === 0) {
+              console.log("No reviewers to add.");
+              return;
+            }
+
+            await github.rest.pulls.requestReviewers({
+              owner,
+              repo,
+              pull_number: pr.number,
+              reviewers: reviewers,
+            });
