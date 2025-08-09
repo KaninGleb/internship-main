@@ -3,10 +3,12 @@
 import { Button } from '@/components/Button/Button'
 import { Input } from '@/components/Input/Input'
 import React from 'react'
+import { Header } from '@/common/components/Header/Header'
 
 export default function Home() {
   return (
     <>
+      <Header />
       <div className='text-4xl font-bold text-[var(--color-accent-100)]'>Tailwind работает! 🚀</div>
       <div className='text-accent-100 text-4xl font-bold'>Tailwind работает! 🚀</div>
       <div className='bg-danger-100 p-4 text-white'>Test</div>
