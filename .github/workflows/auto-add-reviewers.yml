@@ -24,11 +24,11 @@ jobs:
               affiliation: "all"
             });
 
-            const reviewers = collaborators.data
+            let reviewers = collaborators.data
               .map(user => user.login)
-              .filter(login => login !== pr.user.login && login !== TEAM_LEAD && !login.endsWith('[bot]'));
+              .filter(login => login !== pr.user.login && !login.endsWith('[bot]'));
 
-            if (!reviewers.includes(TEAM_LEAD)) {
+            if (TEAM_LEAD !== pr.user.login && !TEAM_LEAD.endsWith('[bot]') && !reviewers.includes(TEAM_LEAD)) {
               reviewers.unshift(TEAM_LEAD);
             }
 
@@ -41,5 +41,5 @@ jobs:
               owner,
               repo,
               pull_number: pr.number,
-              reviewers: reviewers,
+              reviewers: reviewers,            
             });
