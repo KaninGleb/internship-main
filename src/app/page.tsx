@@ -4,6 +4,7 @@ import { Button } from '@/components/Button/Button'
 import { Input } from '@/components/Input/Input'
 import React from 'react'
 import { Header } from '@/common/components/Header/Header'
+import { SignUpPage } from '@/pages/signUpPage/SignUpPage'
 
 export default function Home() {
   return (
@@ -15,20 +16,18 @@ export default function Home() {
       <div style={{ width: '50px', height: '50px', color: 'var(--color-accent-100)' }}>123123123213</div>
       <div className='text-accent-500 text-4xl font-bold'>Тест цвета Accent</div>
       <div className='bg-danger-300 p-7 text-white'></div>
+      <SignUpPage />
 
-      <Button variant={'primary'} onClick={() => alert('Hello World!!')}>
-        Button
-      </Button>
-      <Button variant={'secondary'}>Button</Button>
-      <Button variant={'transparent'} onClick={() => {}}>
-        Button
-      </Button>
-      <Button variant={'default'}>Button</Button>
-      <div className='bg-dark-700 p-10 text-white'></div>
+      {/*<Button variant={'primary'} onClick={() => alert('Hello World!!')}>*/}
+      {/*  Button*/}
+      {/*</Button>*/}
+      {/*<Button variant={'secondary'}>Button</Button>*/}
+      {/*<Button variant={'default'}>Button</Button>*/}
+      {/*<div className='bg-dark-700 p-10 text-white'></div>*/}
 
-      <Input type={'email'}></Input>
-      <Input type={'password'}></Input>
-      <Input type={'search'}></Input>
+      {/*<Input type={'email'}></Input>*/}
+      {/*<Input type={'password'}></Input>*/}
+      {/*<Input type={'search'}></Input>*/}
     </>
   )
 }
