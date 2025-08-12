@@ -10,7 +10,7 @@ type ButtonProps = Partial<
     size: SizeUnitType
     loading: boolean
     className: string
-  } & React.ButtonHTMLAttributes<HTMLSelectElement>
+  } & React.ButtonHTMLAttributes<HTMLButtonElement>
 >
 
 export const Button: React.FC<ButtonProps> = ({
