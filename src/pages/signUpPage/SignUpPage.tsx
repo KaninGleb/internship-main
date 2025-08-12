@@ -1,8 +1,6 @@
-import { Input } from '@/components/Input/Input'
-import React, { useState } from 'react'
-import { Button } from '@/components/Button/Button'
+import { useState } from 'react'
 import { Checkbox } from '@headlessui/react'
-import { Icon } from '@/components/Icon/Icon'
+import { Icon, Input, Button } from '@/common/components'
 
 export const SignUpPage = () => {
   const [enabled, setEnabled] = useState(true)
