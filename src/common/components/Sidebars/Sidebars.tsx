@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { Icon } from "../Icon/Icon"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Icon } from '@/common/components'
 
 export const Sidebar = () => {
   const pathname = usePathname()
