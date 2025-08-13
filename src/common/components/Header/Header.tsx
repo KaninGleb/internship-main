@@ -28,7 +28,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
   const rightContainerGap = isAuth ? 'gap-[46px]' : 'gap-[36px]'
 
   return (
-    <header className='border-dark-300 border-b bg-[#0d0d0d]'>
+    <header className='border-dark-300 border-b bg-[var(--color-dark-700)]'>
       <div className='mx-auto flex h-[60px] w-full max-w-[1280px] items-center justify-between py-[12px] pr-[64px] pl-[60px]'>
         <Link href='/' className='flex items-end select-none'>
           {isAdmin ? (
@@ -88,7 +88,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
                     leaveFrom='opacity-100'
                     leaveTo='opacity-0'
                   >
-                    <ListboxOptions className='absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded border border-gray-500 bg-[#0d0d0d] py-1 text-white shadow-lg focus:outline-none'>
+                    <ListboxOptions className='absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded border border-gray-500 bg-[var(--color-dark-700)] py-1 text-white shadow-lg focus:outline-none'>
                       {langs.map(({ title, path }) => (
                         <ListboxOption
                           key={title}

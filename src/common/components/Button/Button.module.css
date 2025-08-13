@@ -20,10 +20,9 @@
   opacity: 1;
 }
 
-/* Main pseudo-classes */
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--color-info-700);
+  box-shadow: 0 0 0 2px var(--color-accent-700);
 }
 
 .button:disabled {
@@ -35,79 +34,78 @@
 /* Primary */
 .buttonPrimary {
   color: var(--color-light-100);
-  background-color: var(--color-info-500);
+  background-color: var(--color-accent-500);
 }
 
 .buttonPrimary:not(:disabled):hover {
-  background-color: var(--color-info-100);
+  background-color: var(--color-accent-100);
 }
 
 .buttonPrimary:disabled {
-  background-color: var(--color-info-900);
+  background-color: var(--color-accent-900);
 }
 
 /* Secondary */
 .buttonSecondary {
   color: var(--color-light-100);
-  background-color: var(--color-dark-500);
-}
-
-.buttonSecondary:hover {
   background-color: var(--color-dark-300);
 }
 
+.buttonSecondary:hover {
+  background-color: var(--color-dark-100);
+}
+
 .buttonSecondary:active {
-  background-color: #212121;
+  background-color: var(--color-dark-500);
 }
 
 .buttonSecondary:focus {
-  background-color: var(--color-dark-700);
+  background-color: var(--color-dark-500);
 }
 
 .buttonSecondary:disabled {
-  background-color: var(--color-dark-500);
+  background-color: var(--color-dark-300);
 }
 
 /* Transparent */
 .buttonTransparent {
-  color: var(--color-info-500);
-  border: 1px solid var(--color-info-500);
-}
-
-.buttonTransparent:active {
-  background-color: var(--color-dark-700);
+  color: var(--color-accent-500);
+  border: 1px solid var(--color-accent-500);
 }
 
 .buttonTransparent:not(:disabled):hover {
-  color: var(--color-info-100);
+  color: var(--color-accent-100);
+  border-color: var(--color-accent-100);
 }
 
 .buttonTransparent:active {
-  border: 2x solid var(--color-info-500);
+  background-color: var(--color-dark-500);
+  border: 1px solid var(--color-accent-500);
 }
 
 .buttonTransparent:disabled {
-  color: var(--color-info-900);
+  color: var(--color-accent-900);
+  border-color: var(--color-accent-900);
 }
 
 /* Default */
 .buttonDefault {
   width: 100px;
-  color: var(--color-info-500);
+  color: var(--color-accent-500);
   background-color: transparent;
   border: none;
 }
 
 .buttonDefault:active {
-  color: var(--color-info-700);
+  color: var(--color-accent-700);
 }
 
 .buttonDefault:not(:disabled):hover {
-  color: var(--color-info-700);
+  color: var(--color-accent-700);
 }
 
 .buttonDefault:disabled {
-  color: var(--color-info-900);
+  color: var(--color-accent-900);
 }
 
 /* Sizes */

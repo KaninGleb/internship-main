@@ -45,7 +45,7 @@ export const Input: React.FC<InputPropsType> = ({
       <div className={`${styles.inputWrapper} ${className} `}>
         {type === 'search' && (
           <span className={styles.searchIcon}>
-            <FaSearch size={20} color='#8D9094' />
+            <FaSearch size={20} color='var(--color-light-900)' />
           </span>
         )}
         <input
