@@ -10,7 +10,7 @@
   body {
     font-family: Inter, system-ui, sans-serif;
     color: #fff;
-    background-color: #0d0d0d;
+    background-color: var(--color-dark-700);
     min-height: 100vh;
   }
 }

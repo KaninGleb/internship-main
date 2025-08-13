@@ -10,7 +10,7 @@
   display: block;
   width: 100%;
   font-size: 14px;
-  color: #8d9094;
+  color: var(--color-light-900);
   text-align: left;
 }
 
@@ -24,9 +24,9 @@
   height: 36px;
   padding: 10px 40px 10px 10px;
   font-size: 16px;
-  color: #8d9094;
+  color: var(--color-light-900);
   background-color: transparent;
-  border: 1px solid #4c4c4c;
+  border: 1px solid var(--color-light-900);
   border-radius: 2px;
   transform: rotate(0deg);
   transition: border-color 0.3s;
@@ -38,33 +38,33 @@
 }
 
 .button:active {
-  color: white;
-  border: 1px solid white;
+  color: var(--color-light-100);
+  border: 1px solid var(--color-light-100);
 }
 
 .input:hover {
-  border-color: #8d9094;
+  border-color: var(--color-light-900);
 }
 
 .input:focus {
-  border: 2px solid #397df6;
+  border: 2px solid var(--color-accent-500);
 }
 
 .inputDisabled {
-  color: #4c4c4c;
-  border-color: #4c4c4c;
+  color: var(--color-dark-100);
+  border-color: var(--color-dark-100);
 }
 
 .inputError {
-  border-color: red;
-  color: white;
+  border-color: var(--color-danger-500);
+  color: var(--color-light-100);
 }
 
 .errorMessage {
   display: block;
   margin-top: 5px;
   font-size: 12px;
-  color: red;
+  color: var(--color-danger-300);
 }
 
 .toggleVisibility {
