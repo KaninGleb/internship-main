@@ -7,7 +7,7 @@ import { twMerge } from 'tailwind-merge'
 
 export type OptionType<T = string> = {
   value: T
-  label: string
+  label?: string
   icon?: string | ReactNode
 }
 
@@ -32,6 +32,16 @@ export const SelectBox: FC<SelectBoxProps> = ({
 }) => {
   const selectedOption = options.find((opt) => opt.value === value)
 
+  const renderIcon = (icon?: string | ReactNode, alt?: string) => {
+    if (!icon) return null
+
+    if (typeof icon === 'string') {
+      return <img src={icon} alt={alt || ''} className='h-5 w-5 object-cover' />
+    }
+
+    return icon
+  }
+
   return (
     <div className={twMerge('w-full max-w-sm', className)}>
       <Field>
@@ -42,19 +52,14 @@ export const SelectBox: FC<SelectBoxProps> = ({
             <div className='relative mt-1'>
               <ListboxButton
                 className={twMerge(
-                  'relative block w-full rounded-xs border px-3 py-1.5 text-left text-sm data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-[var(--color-info-500)]',
+                  'relative block w-full cursor-pointer rounded-xs border px-3 py-1.5 text-left text-sm data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-[var(--color-info-500)]',
                   disabled
                     ? 'cursor-not-allowed border-[var(--color-dark-300)] bg-[var(--color-dark-700)] text-[var(--color-dark-300)]'
                     : 'border-[var(--color-dark-100)] bg-[var(--color-dark-700)] hover:bg-[var(--color-dark-500)]',
                 )}
               >
                 <span className='flex gap-3'>
-                  {selectedOption?.icon &&
-                    (typeof selectedOption.icon === 'string' ? (
-                      <Icon iconId={selectedOption.icon} />
-                    ) : (
-                      selectedOption.icon
-                    ))}
+                  {renderIcon(selectedOption?.icon, selectedOption?.label)}
                   {selectedOption ? selectedOption.label : placeholder || 'Select...'}
                 </span>
                 <Icon
@@ -70,7 +75,7 @@ export const SelectBox: FC<SelectBoxProps> = ({
 
               <ListboxOptions
                 transition
-                className='w-(--button-width) rounded-xs border border-[var(--color-dark-100)] bg-[var(--color-dark-700)] shadow-lg transition duration-100 ease-in focus:outline-none data-leave:data-closed:opacity-0'
+                className='absolute w-(--button-width) rounded-xs border border-[var(--color-dark-100)] bg-[var(--color-dark-700)] shadow-lg transition duration-100 ease-in focus:outline-none data-leave:data-closed:opacity-0'
               >
                 {options.map((opt) => (
                   <ListboxOption
@@ -79,7 +84,7 @@ export const SelectBox: FC<SelectBoxProps> = ({
                     className='group flex w-full items-center gap-2 px-3 py-1.5 transition duration-200 hover:bg-[var(--color-dark-500)] hover:text-[var(--color-info-500)]'
                   >
                     <span className='flex gap-3 text-sm text-[var(--color-light-900)] transition duration-200 group-hover:text-[var(--color-info-500)]'>
-                      {opt.icon && (typeof opt.icon === 'string' ? <Icon iconId={opt.icon} size={20} /> : opt.icon)}
+                      {renderIcon(opt.icon, opt.label)}
                       {opt.label}
                     </span>
                   </ListboxOption>
