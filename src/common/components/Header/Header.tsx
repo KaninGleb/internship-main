@@ -5,7 +5,7 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } fro
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { Icon, Button } from '@/common/components'
-import { flagUK, flagRussia } from '@/assets/images/icons'
+import { flagUK, flagRussia } from 'src/assets/icons'
 
 type HeaderPropsType = {
   isAuth: boolean
