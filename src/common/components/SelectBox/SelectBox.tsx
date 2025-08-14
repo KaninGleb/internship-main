@@ -52,7 +52,7 @@ export const SelectBox: FC<SelectBoxProps> = ({
             <div className='relative mt-1'>
               <ListboxButton
                 className={twMerge(
-                  'relative block w-full cursor-pointer rounded-xs border px-3 py-1.5 text-left text-sm data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-[var(--color-info-500)]',
+                  'relative block w-full cursor-pointer rounded-xs border px-3 py-1.5 text-left text-sm select-none data-focus:outline-2 data-focus:outline-offset-2 data-focus:outline-[var(--color-info-500)]',
                   disabled
                     ? 'cursor-not-allowed border-[var(--color-dark-300)] bg-[var(--color-dark-700)] text-[var(--color-dark-300)]'
                     : 'border-[var(--color-dark-100)] bg-[var(--color-dark-700)] hover:bg-[var(--color-dark-500)]',
@@ -75,13 +75,13 @@ export const SelectBox: FC<SelectBoxProps> = ({
 
               <ListboxOptions
                 transition
-                className='absolute w-(--button-width) rounded-xs border border-[var(--color-dark-100)] bg-[var(--color-dark-700)] shadow-lg transition duration-100 ease-in focus:outline-none data-leave:data-closed:opacity-0'
+                className='absolute w-full rounded-xs border border-[var(--color-dark-100)] bg-[var(--color-dark-700)] shadow-lg transition duration-100 ease-in select-none focus:outline-none data-leave:data-closed:opacity-0'
               >
                 {options.map((opt) => (
                   <ListboxOption
                     key={opt.value}
                     value={opt.value}
-                    className='group flex w-full items-center gap-2 px-3 py-1.5 transition duration-200 hover:bg-[var(--color-dark-500)] hover:text-[var(--color-info-500)]'
+                    className='group flex w-full cursor-pointer items-center gap-2 px-3 py-1.5 transition duration-200 hover:bg-[var(--color-dark-500)] hover:text-[var(--color-info-500)]'
                   >
                     <span className='flex gap-3 text-sm text-[var(--color-light-900)] transition duration-200 group-hover:text-[var(--color-info-500)]'>
                       {renderIcon(opt.icon, opt.label)}
