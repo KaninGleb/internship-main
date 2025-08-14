@@ -20,12 +20,12 @@ export const Sidebar = () => {
     { href: "/profile", label: "My Profile", icon: "person-outline", activeIcon: "person" },
     { href: "/messenger", label: "Messenger", icon: "message-circle-outline", activeIcon: "message-circle" },
     { href: "/search", label: "Search", icon: "search", activeIcon: "search" },
-  ]
+  ] as const
 
   const secondaryLinks = [
     { href: "/statistics", label: "Statistics", icon: "trending-up", activeIcon: "trending-up" },
     { href: "/favorities", label: "Favorites", icon: "bookmark-outline", activeIcon: "bookmark" },
-  ]
+  ] as const
 
   return (
     <aside className="fixed left-0 top-[61px] w-[220px] h-[100vh] pl-[60px] pt-[72px] align-middle bg-dark-700 border-r border-dark-300
@@ -37,7 +37,7 @@ export const Sidebar = () => {
             return (
               <li key={href}>
                 <Link className={`flex cursor-pointer items-center pr-2 ${isActive ? 'text-accent-500' : ''} hover:text-accent-100
-                border-2 border-transparent rounded-[2px] focus:outline-none focus:ring-0 focus:border-accent-700 disabled:test-dark-100
+                border-2 border-transparent rounded-[2px] focus:outline-none focus:ring-0 focus:border-accent-700 disabled:text-dark-100
                 transition-colors ease-in-out duration-200`}
                   href={href}
                   onClick={(e) => {
