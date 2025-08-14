@@ -28,7 +28,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
   const rightContainerGap = isAuth ? 'gap-[46px]' : 'gap-[36px]'
 
   return (
-    <header className='border-dark-300 border-b bg-[var(--color-dark-700)]'>
+    <header className='sticky top-0 z-50 border-b border-[var(--color-dark-300)] bg-[var(--color-dark-700)]'>
       <div className='mx-auto flex h-[60px] w-full max-w-[1280px] items-center justify-between py-[12px] pr-[64px] pl-[60px]'>
         <Link href='/' className='flex items-end select-none'>
           {isAdmin ? (
