@@ -1,7 +1,8 @@
 import React from 'react'
+import { IconIdType } from '@/common/types'
 
 type IconProps = {
-  iconId: string
+  iconId: IconIdType
   size?: number
   color?: string
   className?: string
