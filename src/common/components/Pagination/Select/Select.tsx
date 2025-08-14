@@ -21,7 +21,7 @@ export const Select: React.FC<SelectPropsType> = ({
 }) => {
   const mappedOptions: React.ReactNode[] = options
     ? options.map((o) => (
-        <option id={'hw7-option-' + o.id} key={o.id} value={o.value}>
+        <option key={o.id} value={o.value}>
           {o.value}
         </option>
       ))
@@ -40,7 +40,8 @@ export const Select: React.FC<SelectPropsType> = ({
             className={className}
             value={value}
         >
-      {mappedOptions}
+        {mappedOptions}
+
     </select>
   )
 }
