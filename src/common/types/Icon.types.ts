@@ -79,6 +79,7 @@ export const iconIds = [
   'credit-card',
   'github',
   'recaptcha',
+  'recaptcha-without-text',
   'facebook',
   'google',
   'paypal',
