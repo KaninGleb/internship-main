@@ -15,7 +15,7 @@
     "generate-icons": "tsx scripts/generate-icon-types.ts"
   },
   "dependencies": {
-    "@fontsource/roboto": "^5.2.6",
+    "@fontsource/inter": "^5.2.6",
     "@headlessui/react": "^2.2.7",
     "@reduxjs/toolkit": "^2.8.2",
     "clsx": "^2.1.1",
