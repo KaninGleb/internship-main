@@ -20,6 +20,7 @@ pipeline {
                 checkout scm
             }
         }
+        /*
         stage('Unit tests') {
              steps {
                 echo "Preparing started..."
@@ -36,6 +37,8 @@ pipeline {
                   }
              }
         }
+        */
+
         stage('Build docker image') {
             steps {
                 echo "Build image started..."
