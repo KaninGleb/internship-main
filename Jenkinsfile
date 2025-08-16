@@ -28,8 +28,9 @@ pipeline {
                          export NVM_DIR="$HOME/.nvm"
                          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
                          nvm use --lts
-                         yarn install
-                         yarn test
+                         npm install -g pnpm
+                         pnpm install
+                         pnpm test
                       '''
                   }
              }
