@@ -2,6 +2,11 @@ def app
 
 pipeline {
     agent any
+
+    triggers {
+        github 'pull_request'
+    }
+
     environment {
         ENV_TYPE = "production"
         PORT = 3987
@@ -20,6 +25,7 @@ pipeline {
                 checkout scm
             }
         }
+
         /*
         stage('Unit tests') {
              steps {
