@@ -30,6 +30,7 @@ pipeline {
                          nvm use --lts
                          npm install -g pnpm
                          pnpm install
+                         pnpm exec playwright install
                          pnpm test
                       '''
                   }
