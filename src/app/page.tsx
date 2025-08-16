@@ -1,6 +1,5 @@
 'use client'
 
-import React from 'react'
 import { Header } from '@/common/components'
 import { SignUpPage } from '@/pages/SignUpPage/SignUpPage'
 
