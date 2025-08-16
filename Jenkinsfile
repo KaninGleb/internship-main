@@ -4,7 +4,7 @@ pipeline {
     agent any
 
     triggers {
-        github 'pull_request'
+        githubPush()
     }
 
     environment {
