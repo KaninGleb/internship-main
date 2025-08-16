@@ -1,0 +1,65 @@
+# Название вашего пайплайна в GitHub Actions
+name: Test & Deploy Next.js to Vercel
+
+# Условие запуска: пуш в ветку 'staging'
+on:
+  push:
+    branches:
+      - staging
+
+# Список задач (jobs)
+jobs:
+  # Первая задача: запуск тестов
+  tests:
+    name: Tests
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Клонируем репозиторий
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      # 2. Устанавливаем Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' # Указываем версию Node.js
+
+      # 3. Устанавливаем PNPM
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8 # Указываем мажорную версию pnpm
+
+      # 4. Устанавливаем зависимости с помощью pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # 5. Запускаем тест-скрипт из вашего package.json
+      - name: Run tests
+        run: pnpm test
+
+  # Вторая задача: деплой на Vercel
+  deploy:
+    name: Deploy to Vercel
+    # Эта задача зависит от успешного выполнения тестов
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Клонируем репозиторий
+      - uses: actions/checkout@v3
+
+      # 2. Устанавливаем Vercel CLI
+      - name: Install Vercel CLI
+        run: pnpm add --global vercel@latest
+
+      # 3. Получаем переменные окружения Vercel для Preview-сборки
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      # 4. Собираем проект (Vercel сам поймет, что это Next.js и pnpm)
+      - name: Build Project Artifacts
+        run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
+
+      # 5. Деплоим собранный проект на Vercel
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
