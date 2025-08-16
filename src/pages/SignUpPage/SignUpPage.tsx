@@ -1,6 +1,8 @@
-import { useState } from 'react'
-import { Checkbox } from '@headlessui/react'
-import { Icon, Input, Button } from '@/common/components'
+import { Input } from '@/components/Input/Input'
+import React, { useState } from 'react'
+import { Button } from '@/components/Button/Button'
+import { CheckBox } from '@/components/Check-box/Check-box'
+import { Icon } from '@/components/Icon/Icon'
 
 export const SignUpPage = () => {
   const [enabled, setEnabled] = useState(true)
@@ -30,15 +32,7 @@ export const SignUpPage = () => {
         <Input className={'w-full'} type={'password'} label={'Password confirmation'} />
 
         <div className='mb-4 flex items-center'>
-          <Checkbox
-            checked={enabled}
-            onChange={setEnabled}
-            className='group mr-2 block size-4 rounded-[2px] border bg-white data-checked:bg-white'
-          >
-            <svg className='stroke-black opacity-0 group-data-checked:opacity-100' viewBox='0 0 14 14' fill='none'>
-              <path d='M3 8L6 11L11 3.5' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round' />
-            </svg>
-          </Checkbox>
+          <CheckBox checked={enabled} onChange={setEnabled} disabled={false} />
 
           <p className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'>
             I agree to the{' '}
