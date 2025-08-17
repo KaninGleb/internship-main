@@ -1,15 +1,12 @@
-import { Input } from '@/components/Input/Input'
-import React, { useState } from 'react'
-import { Button } from '@/components/Button/Button'
-import { CheckBox } from '@/components/Check-box/Check-box'
-import { Icon } from '@/components/Icon/Icon'
+import { useState } from 'react'
+import { Icon, Input, Button, CheckBox } from '@/common/components'
 
 export const SignUpPage = () => {
-  const [enabled, setEnabled] = useState(true)
+  const [enabled, setEnabled] = useState(false)
 
   return (
     <div className='m-auto flex max-w-[378px] items-center justify-center bg-black'>
-      <div className='bg-dark-700 border-dark-300 w-full max-w-md rounded-lg border p-8'>
+      <div className='bg-dark-500 border-dark-300 w-full max-w-md rounded-lg border p-8'>
         <h2 className='mb-4 flex flex-col items-center justify-center text-xl text-[20px] font-semibold text-white'>
           Sign Up
         </h2>
@@ -34,13 +31,13 @@ export const SignUpPage = () => {
         <div className='mb-4 flex items-center'>
           <CheckBox checked={enabled} onChange={setEnabled} disabled={false} />
 
-          <p className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'>
+          <p className='w-full text-[12px] font-[var(--font-family-primary)] font-extralight text-white'>
             I agree to the{' '}
-            <a href={'#'} className={'text-info-300 underline'}>
+            <a href={'#'} className={'text-accent-300 underline'}>
               Terms of Service
             </a>{' '}
             and{' '}
-            <a href={'#'} className={'text-info-300 underline'}>
+            <a href={'#'} className={'text-accent-300 underline'}>
               Privacy Policy
             </a>
           </p>
@@ -50,9 +47,9 @@ export const SignUpPage = () => {
 
         <div className='m-auto mt-4 text-center'>
           <a href={'#'}>
-            <p className='mb-1 text-white'>Do you have an account?</p>
+            <p className='mb-1 font-extralight text-white'>Do you have an account?</p>
           </a>
-          <Button className={'text-info-500 w-full'} size={'large'} children={'Sign in'} />
+          <Button className={'text-accent-500 w-full'} size={'large'} children={'Sign in'} />
         </div>
       </div>
     </div>
