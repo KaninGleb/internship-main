@@ -1,7 +1,6 @@
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { useState } from 'react'
-import { CheckBox } from './Check-box'
+import { Meta, StoryObj } from '@storybook/nextjs'
+import { CheckBox } from './CheckBox'
+import '@/app/globals.css'
 
 const meta: Meta<typeof CheckBox> = {
   title: 'Components/CheckBox',
@@ -12,28 +11,22 @@ const meta: Meta<typeof CheckBox> = {
   argTypes: {
     checked: {
       control: 'boolean',
-      description: 'Whether the checkbox is checked',
+      description: 'Определяет, отмечен ли чекбокс',
     },
     disabled: {
       control: 'boolean',
-      description: 'Whether the checkbox is disabled',
+      description: 'Определяет, отключен ли чекбокс',
     },
-    onChange: {
-      action: 'changed',
-      description: 'Callback when the checkbox state changes',
-    },
-    className: {
-      control: 'text',
-      description: 'Additional CSS classes',
-    },
+    onChange: { action: 'changed' },
   },
+  tags: ['autodocs'],
 }
 
 export default meta
 
 type Story = StoryObj<typeof CheckBox>
 
-export const Unchecked: Story = {
+export const Default: Story = {
   args: {
     checked: false,
     disabled: false,
@@ -60,4 +53,3 @@ export const DisabledChecked: Story = {
     disabled: true,
   },
 }
-
