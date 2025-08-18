@@ -3,9 +3,9 @@ def app
 pipeline {
     agent any
 
-    triggers {
-        githubPush()
-    }
+//     triggers {
+//         githubPush()
+//     }
 
     environment {
         ENV_TYPE = "production"
