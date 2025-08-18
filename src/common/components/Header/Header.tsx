@@ -78,7 +78,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
                 <div className='relative w-[164px]'>
                   <ListboxButton className='bg-dark-800 flex h-[36px] w-full cursor-pointer items-center justify-between border border-[var(--color-dark-300)] px-2 text-white'>
                     <div className='flex items-center gap-3'>
-                      {currLang && <Image src={currLang?.path.src} alt={lang} className='h-5 w-5 object-cover' />}
+                      {currLang && <Image src={currLang?.path} alt={lang} className='h-5 w-5 object-cover' />}
 
                       <span className='block truncate'>{lang}</span>
                     </div>
@@ -108,7 +108,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
                         >
                           {({ selected }) => (
                             <>
-                              <Image src={path.src} alt={title} className='h-5 w-5 object-cover' />
+                              <Image src={path} alt={title} className='h-5 w-5 object-cover' />
                               <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
                                 {title}
                               </span>
