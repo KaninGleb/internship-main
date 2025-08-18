@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <>
       <Header isAuth={false} isAdmin={false} />
-
       <SignUpPage />
     </>
   )
