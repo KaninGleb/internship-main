@@ -3,10 +3,6 @@ def app
 pipeline {
     agent any
 
-//     triggers {
-//         githubPush()
-//     }
-
     environment {
         ENV_TYPE = "production"
         PORT = 3987
@@ -26,39 +22,47 @@ pipeline {
             }
         }
 
-        /*
-        stage('Unit tests') {
+        stage('Install Dependencies') {
             steps {
-                echo "Preparing started..."
-                script {
-                    sh '''
-                        export NVM_DIR="$HOME/.nvm"
-                        [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-                        nvm use --lts
-                        npm install -g pnpm
-                        pnpm install
-                        pnpm exec playwright install
-                        pnpm test
-                    '''
+                sh 'pnpm install'
+            }
+        }
+
+        stage('Linting & Security Checks') {
+            parallel {
+                stage('Linting') {
+                    steps {
+                        sh 'pnpm lint'
+                    }
                 }
+
+                stage('Security Audit') {
+                    steps {
+                        sh 'pnpm audit --prod --audit-level=high'
+                    }
+                }
+            }
+        }
+
+        /*
+        stage('Unit Tests') {
+            steps {
+                sh 'pnpm test'
             }
         }
         */
 
+        /*
         stage('Install Dependencies & Run Tests') {
             steps {
-                echo "Installing dependencies..."
-                sh 'pnpm install'
-
                 echo "Running Chromatic visual tests... SKIPPED"
 
-                /*
                 withCredentials([string(credentialsId: 'chromatic-project-token', variable: 'CHROMATIC_PROJECT_TOKEN')]) {
                     sh 'pnpm chromatic --exit-zero-on-changes'
                 }
-                */
             }
         }
+        */
 
         stage('Build docker image') {
             steps {
