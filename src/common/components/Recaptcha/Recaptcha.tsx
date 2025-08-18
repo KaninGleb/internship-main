@@ -22,7 +22,7 @@ type RecaptchaProps = {
 
 export const Recaptcha: React.FC<RecaptchaProps> = ({
   className,
-  label = 'I’m not a robot',
+  label = "I'm not a robot",
   initialStatus = 'expired',
   loadingMs = 700,
   expireAfterMs = 90_000,
@@ -119,7 +119,7 @@ export const Recaptcha: React.FC<RecaptchaProps> = ({
           <div className='flex items-center gap-4'>
             <div
               className={cn(
-                'relative ml-1 flex h-6 w-6 items-center justify-center rounded-[2px] border border-transparent bg-white hover:border-gray-400',
+                'relative ml-1 flex h-5 w-5 items-center justify-center rounded-[2px] border border-transparent bg-white hover:border-gray-400',
                 isChecked || isLoading ? 'bg-zinc-900' : '',
               )}
               aria-hidden
@@ -128,9 +128,8 @@ export const Recaptcha: React.FC<RecaptchaProps> = ({
                 <Icon
                   iconId={'reCaptcha-checkmark'}
                   className={cn(
-                    'h-[28px] w-[28px] shrink-0 translate-y-[1px]',
-                    'overflow-visible transition',
-                    'fill-[#2E7D32] stroke-none',
+                    'h-[22px] w-[28px] overflow-visible [stroke-linecap:butt] [stroke-linejoin:miter] [stroke-miterlimit:10]',
+                    'scale-150 fill-none stroke-[#2E7D32] [stroke-width:2] transition',
                   )}
                 />
               )}
