@@ -1,7 +1,7 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/nextjs'
 import { OptionType, SelectBox } from './SelectBox'
-import { Icon } from '../Icon/Icon'
+import { Icon } from '@/common/components'
 
 const options: OptionType[] = [
   { value: 'en', label: 'English' },
@@ -53,43 +53,36 @@ export default meta
 type Story = StoryObj<typeof SelectBox>
 
 export const Default: Story = {
-  render: (args) => {
-    const [value, setValue] = React.useState(args.value ?? '')
-    return <SelectBox {...args} value={value} onChange={setValue} className='text-[var(--color-light-900)]' />
-  },
   args: {
     options,
-    value: '',
+    value: 'en',
     label: 'Choose language',
     placeholder: 'Select language',
     disabled: false,
-    className: '',
+    className: 'text-[var(--color-light-900)] w-60',
   },
 }
 
 export const Disabled: Story = {
-  render: (args) => <SelectBox {...args} className='text-[var(--color-dark-300)]' />,
   args: {
     options,
     value: 'en',
     disabled: true,
     label: 'Disabled select',
+    className: 'w-60',
   },
 }
 
 export const WithIcons: Story = {
-  render: (args) => {
-    const [value, setValue] = React.useState(args.value ?? null)
-    return <SelectBox {...args} value={value} onChange={setValue} className='text-[var(--color-light-900)]' />
-  },
   args: {
     options: [
       { value: 'en', label: 'English', icon: <Icon iconId='settings' size={20} color='white' /> },
       { value: 'ru', label: 'Русский', icon: <Icon iconId='settings' size={20} color='white' /> },
       { value: 'de', label: 'Deutsch', icon: <Icon iconId='settings' size={20} color='white' /> },
     ],
-    value: null,
+    value: 'en',
     label: 'Language with flags',
     placeholder: 'Select language',
+    className: 'text-[var(--color-light-900)] w-60',
   },
 }
