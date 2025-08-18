@@ -1,44 +1,44 @@
-name: Auto Trigger Jenkins (Safe Update)
-
-on:
-  pull_request:
-    types: [ opened, synchronize ]
-
-jobs:
-  trigger-and-update-comment:
-    runs-on: ubuntu-latest
-
-    permissions:
-      pull-requests: write
-
-    steps:
-      - name: Find and update trigger comment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const triggerPhrase = 'run build production'
-
-            const { data: comments } = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            })
-
-            const staleComment = comments.find(comment => 
-              comment.body.trim() === triggerPhrase
-            )
-
-            if (staleComment) {
-              await github.rest.issues.deleteComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: staleComment.id,
-              })
-            }
-
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body: triggerPhrase
-            })
+#name: Auto Trigger Jenkins (Safe Update)
+#
+#on:
+#  pull_request:
+#    types: [ opened, synchronize ]
+#
+#jobs:
+#  trigger-and-update-comment:
+#    runs-on: ubuntu-latest
+#
+#    permissions:
+#      pull-requests: write
+#
+#    steps:
+#      - name: Find and update trigger comment
+#        uses: actions/github-script@v7
+#        with:
+#          script: |
+#            const triggerPhrase = 'run build production'
+#
+#            const { data: comments } = await github.rest.issues.listComments({
+#              owner: context.repo.owner,
+#              repo: context.repo.repo,
+#              issue_number: context.issue.number,
+#            })
+#
+#            const staleComment = comments.find(comment =>
+#              comment.body.trim() === triggerPhrase
+#            )
+#
+#            if (staleComment) {
+#              await github.rest.issues.deleteComment({
+#                owner: context.repo.owner,
+#                repo: context.repo.repo,
+#                comment_id: staleComment.id,
+#              })
+#            }
+#
+#            await github.rest.issues.createComment({
+#              owner: context.repo.owner,
+#              repo: context.repo.repo,
+#              issue_number: context.issue.number,
+#              body: triggerPhrase
+#            })
