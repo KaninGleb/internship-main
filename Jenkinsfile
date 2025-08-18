@@ -45,6 +45,19 @@ pipeline {
         }
         */
 
+        stage('Install Dependencies & Run Tests') {
+            steps {
+                echo "Installing dependencies..."
+                sh 'pnpm install'
+
+                echo "Running Chromatic visual tests..."
+
+                withCredentials([string(credentialsId: 'chromatic-project-token', variable: 'CHROMATIC_PROJECT_TOKEN')]) {
+                    sh 'pnpm chromatic --exit-zero-on-changes'
+                }
+            }
+        }
+
         stage('Build docker image') {
             steps {
                 echo "Build image started..."
