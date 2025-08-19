@@ -3,6 +3,8 @@ import { cn } from '@/common/utils'
 import Image from 'next/image'
 import { gitlByTheWall } from '@/assets/images'
 
+//
+
 export const SignUpCongratulations = () => {
   const commonClasses = 'font-[var(--font-family-primary)] text-center'
 
