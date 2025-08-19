@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Checkbox } from '@headlessui/react'
-import { Icon } from '../Icon/Icon'
+import { Icon } from '@/common/components'
 import { cn } from '@/common/utils'
 
 const baseStyles =
