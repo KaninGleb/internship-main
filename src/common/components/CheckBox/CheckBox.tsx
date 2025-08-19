@@ -18,7 +18,7 @@ const activeStyles = cn(
 )
 
 const focusStyles = cn(
-  'focus-within:before:content-[""] focus-within:before:absolute focus-within:before:top-1/2 focus-within:before:left-1/2 focus-within:before:w-8 focus-within:before:h-8 focus-within:before:rounded-full focus-within:before:-translate-x-1/2 focus-within:before:-translate-y-1/2 focus-within:before:bg-[rgb(from_var(--color-dark-700)_r_g_b_/_70%)]',
+  'focus-within:before:content-[""] focus-within:before:absolute focus-within:before:top-1/2 focus-within:before:left-1/2 focus-within:before:w-8 focus-within:before:h-8 focus-within:before:rounded-full focus-within:before:-translate-x-1/2 focus-within:before:-translate-y-1/2 focus-within:before:bg-dark-500',
 )
 
 const pseudoStyles = cn(hoverStyles, activeStyles, focusStyles)
