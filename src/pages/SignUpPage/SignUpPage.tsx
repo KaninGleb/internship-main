@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import { Checkbox } from '@headlessui/react'
-import { Icon, Input, Button } from '@/common/components'
+import { Icon, Input, Button, CheckBox } from '@/common/components'
 
 export const SignUpPage = () => {
-  const [enabled, setEnabled] = useState(true)
+  const [enabled, setEnabled] = useState(false)
 
   return (
     <div className='m-auto flex max-w-[378px] items-center justify-center bg-black'>
-      <div className='bg-dark-700 border-dark-300 w-full max-w-md rounded-lg border p-8'>
+      <div className='bg-dark-500 border-dark-300 w-full max-w-md rounded-lg border p-8'>
         <h2 className='mb-4 flex flex-col items-center justify-center text-xl text-[20px] font-semibold text-white'>
           Sign Up
         </h2>
@@ -30,23 +29,15 @@ export const SignUpPage = () => {
         <Input className={'w-full'} type={'password'} label={'Password confirmation'} />
 
         <div className='mb-4 flex items-center'>
-          <Checkbox
-            checked={enabled}
-            onChange={setEnabled}
-            className='group mr-2 block size-4 rounded-[2px] border bg-white data-checked:bg-white'
-          >
-            <svg className='stroke-black opacity-0 group-data-checked:opacity-100' viewBox='0 0 14 14' fill='none'>
-              <path d='M3 8L6 11L11 3.5' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round' />
-            </svg>
-          </Checkbox>
+          <CheckBox checked={enabled} onChange={setEnabled} disabled={false} />
 
-          <p className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'>
+          <p className='w-full text-[12px] font-[var(--font-family-primary)] font-extralight text-white'>
             I agree to the{' '}
-            <a href={'#'} className={'text-info-300 underline'}>
+            <a href={'#'} className={'text-accent-300 underline'}>
               Terms of Service
             </a>{' '}
             and{' '}
-            <a href={'#'} className={'text-info-300 underline'}>
+            <a href={'#'} className={'text-accent-300 underline'}>
               Privacy Policy
             </a>
           </p>
@@ -56,9 +47,9 @@ export const SignUpPage = () => {
 
         <div className='m-auto mt-4 text-center'>
           <a href={'#'}>
-            <p className='mb-1 text-white'>Do you have an account?</p>
+            <p className='mb-1 font-extralight text-white'>Do you have an account?</p>
           </a>
-          <Button className={'text-info-500 w-full'} size={'large'} children={'Sign in'} />
+          <Button className={'text-accent-500 w-full'} size={'large'} children={'Sign in'} />
         </div>
       </div>
     </div>
