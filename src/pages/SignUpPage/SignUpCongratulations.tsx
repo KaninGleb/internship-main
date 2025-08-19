@@ -36,3 +36,5 @@ export const SignUpCongratulations = () => {
     </div>
   )
 }
+
+export default SignUpCongratulations
