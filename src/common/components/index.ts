@@ -1,3 +1,5 @@
+export { Typography } from './Typography/Typography'
+
 export { Button } from './Button/Button'
 export { Header } from './Header/Header'
 export { Icon } from './Icon/Icon'
