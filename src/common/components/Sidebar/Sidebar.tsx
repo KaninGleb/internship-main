@@ -42,14 +42,14 @@ export const Sidebar = () => {
   return (
     <aside className='bg-dark-700 border-dark-300 text-light-100 fixed left-0 h-[100vh] w-[220px] border-r pt-[70px] pl-[58px] align-middle text-sm leading-6 font-bold'>
       <nav>
-        <SidebarLink Links={primaryLinks} pathname={pathname} className={'mb-[56px] flex flex-col items-start gap-5'} />
+        <SidebarLink links={primaryLinks} pathname={pathname} className={'mb-[56px] flex flex-col items-start gap-5'} />
         <SidebarLink
-          Links={secondaryLinks}
+          links={secondaryLinks}
           pathname={pathname}
           className={'mb-[176px] flex flex-col items-start gap-5'}
         />
         <button
-          className={`inline-flex cursor-pointer pr-2 ${pathname === '/sign-in' && 'text-accent-500'} hover:text-accent-100 focus:border-accent-700 disabled:test-dark-100 rounded-[2px] border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-0 focus:outline-none`}
+          className={`inline-flex cursor-pointer pr-2 ${pathname === '/sign-in' && 'text-accent-500'} hover:text-accent-100 focus:border-accent-700 disabled:text-dark-100 rounded-[2px] border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-0 focus:outline-none`}
           onClick={handleLogout}
         >
           <Icon className='mr-3 fill-current' iconId={'log-out'} size={24} />
