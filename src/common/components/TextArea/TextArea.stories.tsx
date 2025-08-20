@@ -1,5 +1,5 @@
 import { TextArea } from './TextArea'
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/nextjs'
 
 const meta: Meta<typeof TextArea> = {
   title: 'Components/TextArea',
