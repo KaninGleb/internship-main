@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Checkbox } from '@headlessui/react'
-import { Icon, Input, Button, Typography } from '@/common/components'
+import { Icon, Input, Button, Typography, Card } from '@/common/components'
 
 export const SignUpPage = () => {
   const [enabled, setEnabled] = useState(true)
 
   return (
     <div className='m-auto flex max-w-[378px] items-center justify-center bg-black'>
-      <div className='bg-dark-700 border-dark-300 w-full max-w-md rounded-lg border p-8'>
-        <Typography variant='h2' className='mb-4 flex flex-col items-center justify-center text-white'>
+      <Card className={'w-full max-w-md p-8'}>
+        <Typography className='mb-4 flex flex-col items-center justify-center text-xl text-[20px] font-semibold text-white'>
           Sign Up
         </Typography>
 
@@ -64,7 +64,7 @@ export const SignUpPage = () => {
           </Typography>
           <Button className={'text-info-500 w-full'} size={'large'} children={'Sign in'} />
         </div>
-      </div>
+      </Card>
     </div>
   )
 }
