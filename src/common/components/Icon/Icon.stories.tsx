@@ -1,6 +1,7 @@
 import React from 'react'
 import { Meta, StoryObj } from '@storybook/nextjs'
 import { Icon } from './Icon'
+import { Typography } from '@/common/components'
 import { iconIds } from '@/common/types'
 
 const meta: Meta<typeof Icon> = {
@@ -50,7 +51,7 @@ export const IconGallery: Story = {
           className='flex size-35 flex-col items-center justify-center rounded-2xl border-2 border-solid border-black px-2 py-1.5'
         >
           <Icon {...args} iconId={id} />
-          <p className='mt-2 text-center text-[16px] font-bold text-gray-600'>{id}</p>
+          <Typography className='mt-2 text-center text-[16px] font-bold text-gray-600'>{id}</Typography>
         </div>
       ))}
     </div>
