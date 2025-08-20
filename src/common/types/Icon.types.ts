@@ -79,6 +79,7 @@ export const iconIds = [
   'credit-card',
   'github',
   'recaptcha',
+  'recaptcha-without-text',
   'facebook',
   'google',
   'paypal',
@@ -91,5 +92,5 @@ export const iconIds = [
   'brave',
   'microsoft-edge',
   'yandex',
-  'uc-browser'
+  'uc-browser',
 ] as const

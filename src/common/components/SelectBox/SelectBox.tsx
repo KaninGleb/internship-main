@@ -2,8 +2,9 @@
 
 import React, { FC, ReactNode } from 'react'
 import { Field, Label, Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react'
-import { Icon } from '../Icon/Icon'
+import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
+import { Icon } from '@/common/components'
 
 export type OptionType<T = string> = {
   value: T
@@ -36,7 +37,7 @@ export const SelectBox: FC<SelectBoxProps> = ({
     if (!icon) return null
 
     if (typeof icon === 'string') {
-      return <img src={icon} alt={alt || ''} className='h-5 w-5 object-cover' />
+      return <Image src={icon} alt={alt || ''} className='h-5 w-5 object-cover' />
     }
 
     return icon

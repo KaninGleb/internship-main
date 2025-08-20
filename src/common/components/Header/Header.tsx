@@ -2,6 +2,7 @@
 
 import { useState, Fragment } from 'react'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from '@headlessui/react'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { twMerge } from 'tailwind-merge'
 import { Icon, Button } from '@/common/components'
@@ -13,7 +14,12 @@ type HeaderPropsType = {
   notifCounter?: number
 }
 
-const langs = [
+type LangType = {
+  title: string
+  path: StaticImageData
+}
+
+const langs: LangType[] = [
   { title: 'English', path: flagUK },
   { title: 'Russian', path: flagRussia },
 ]
@@ -28,7 +34,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
   const rightContainerGap = isAuth ? 'gap-[46px]' : 'gap-[36px]'
 
   return (
-    <header className='border-dark-300 border-b bg-[var(--color-dark-700)]'>
+    <header className='sticky top-0 z-50 border-b border-[var(--color-dark-300)] bg-[var(--color-dark-700)]'>
       <div className='mx-auto flex h-[60px] w-full max-w-[1280px] items-center justify-between py-[12px] pr-[64px] pl-[60px]'>
         <Link href='/' className='flex items-end select-none'>
           {isAdmin ? (
@@ -72,7 +78,8 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
                 <div className='relative w-[164px]'>
                   <ListboxButton className='bg-dark-800 flex h-[36px] w-full cursor-pointer items-center justify-between border border-[var(--color-dark-300)] px-2 text-white'>
                     <div className='flex items-center gap-3'>
-                      <img src={currLang?.path.src} alt={lang} className='h-5 w-5 object-cover' />
+                      {currLang && <Image src={currLang?.path} alt={lang} className='h-5 w-5 object-cover' />}
+
                       <span className='block truncate'>{lang}</span>
                     </div>
                     {open ? (
@@ -101,7 +108,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
                         >
                           {({ selected }) => (
                             <>
-                              <img src={path.src} alt={title} className='h-5 w-5 object-cover' />
+                              <Image src={path} alt={title} className='h-5 w-5 object-cover' />
                               <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
                                 {title}
                               </span>

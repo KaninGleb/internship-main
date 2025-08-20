@@ -1,100 +1,60 @@
 'use client'
 
-import { useState } from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from 'next/navigation'
 import { Icon } from '@/common/components'
+import { IconIdType } from '@/common/types'
+import { SidebarLink } from './SidebarLink/SidebarLink'
+
+export type LinksType = {
+  href: string
+  label: string
+  iconId: IconIdType
+  activeIconId: IconIdType
+}
 
 export const Sidebar = () => {
   const pathname = usePathname()
-  const [activeItem, setActiveItem] = useState<string | null>(pathname)
+
+  const router = useRouter()
+
+  const handleLogout = () => {
+    router.push('/sign-in')
+  }
 
   const isLoggedIn = true
 
   // Если пользователь не авторизован — не отображаем сайдбар
   if (!isLoggedIn) return null
 
-  const primaryLinks = [
-    { href: "/", label: "Feed", icon: "home-outline", activeIcon: "home" },
-    { href: "/create", label: "Create", icon: "plus-square-outline", activeIcon: "plus-square" },
-    { href: "/profile", label: "My Profile", icon: "person-outline", activeIcon: "person" },
-    { href: "/messenger", label: "Messenger", icon: "message-circle-outline", activeIcon: "message-circle" },
-    { href: "/search", label: "Search", icon: "search", activeIcon: "search" },
-  ] as const
+  const primaryLinks: LinksType[] = [
+    { href: '/', label: 'Feed', iconId: 'home-outline', activeIconId: 'home' },
+    { href: '/create', label: 'Create', iconId: 'plus-square-outline', activeIconId: 'plus-square' },
+    { href: '/profile', label: 'My Profile', iconId: 'person-outline', activeIconId: 'person' },
+    { href: '/messenger', label: 'Messenger', iconId: 'message-circle-outline', activeIconId: 'message-circle' },
+    { href: '/search', label: 'Search', iconId: 'search', activeIconId: 'search' },
+  ]
 
-  const secondaryLinks = [
-    { href: "/statistics", label: "Statistics", icon: "trending-up", activeIcon: "trending-up" },
-    { href: "/favorities", label: "Favorites", icon: "bookmark-outline", activeIcon: "bookmark" },
-  ] as const
+  const secondaryLinks: LinksType[] = [
+    { href: '/statistics', label: 'Statistics', iconId: 'trending-up', activeIconId: 'trending-up' },
+    { href: '/favorities', label: 'Favorites', iconId: 'bookmark-outline', activeIconId: 'bookmark' },
+  ]
 
   return (
-    <aside className="fixed left-0 top-[61px] w-[220px] h-[100vh] pl-[60px] pt-[72px] align-middle bg-dark-700 border-r border-dark-300
-    text-light-100 font-roboto font-medium font-medium_text-14 text-sm leading-6">
-      <nav className="outline-none">
-        <ul className="mb-[56px] flex flex-col items-start gap-5 ">
-          {primaryLinks.map(({ href, label, icon, activeIcon }) => {
-            const isActive = href === activeItem
-            return (
-              <li key={href}>
-                <Link className={`flex cursor-pointer items-center pr-2 ${isActive ? 'text-accent-500' : ''} hover:text-accent-100
-                border-2 border-transparent rounded-[2px] focus:outline-none focus:ring-0 focus:border-accent-700 disabled:text-dark-100
-                transition-colors ease-in-out duration-200`}
-                  href={href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveItem(href)
-                  }}
-                  aria-disabled={"false"}>
-                  <Icon
-                    className="fill-current mr-3"
-                    iconId={isActive ? activeIcon : icon}
-                    size={24}
-                  />
-                  <span>{label}</span>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-        <ul className="mb-[176px] flex flex-col items-start gap-5">
-          {secondaryLinks.map(({ href, label, icon, activeIcon }) => {
-            const isActive = href === activeItem
-            return (
-              <li key={href}>
-                <Link className={`flex cursor-pointer items-center pr-2 ${isActive ? 'text-accent-500' : ''} hover:text-accent-100
-                border-2 border-transparent rounded-[2px] focus:outline-none focus:ring-0 focus:border-accent-700 disabled:test-dark-100
-                transition-colors ease-in-out duration-200`}
-                  href={href}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveItem(href)
-                  }}>
-                  <Icon
-                    className="fill-current mr-3"
-                    iconId={isActive ? activeIcon : icon}
-                    size={24}
-                  />
-                  <span>{label}</span>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-        <Link className={`inline-flex cursor-pointer pr-2 ${activeItem === '/logout' ? 'text-accent-500' : ''} hover:text-accent-100
-                border-2 border-transparent rounded-[2px] focus:outline-none focus:ring-0 focus:border-accent-700 disabled:test-dark-100
-                transition-colors ease-in-out duration-200`}
-          href={"/sign-in"}
-          onClick={(e) => {
-            e.preventDefault()
-            setActiveItem("/logout")
-          }}>
-          <Icon
-            className="fill-current mr-3"
-            iconId={"log-out"}
-            size={24}
-          />
-          <span>Logout</span>
-        </Link>
+    <aside className='bg-dark-700 border-dark-300 text-light-100 fixed left-0 h-[100vh] w-[220px] border-r pt-[70px] pl-[58px] align-middle text-sm leading-6 font-bold'>
+      <nav>
+        <SidebarLink Links={primaryLinks} pathname={pathname} className={'mb-[56px] flex flex-col items-start gap-5'} />
+        <SidebarLink
+          Links={secondaryLinks}
+          pathname={pathname}
+          className={'mb-[176px] flex flex-col items-start gap-5'}
+        />
+        <button
+          className={`inline-flex cursor-pointer pr-2 ${pathname === '/sign-in' && 'text-accent-500'} hover:text-accent-100 focus:border-accent-700 disabled:test-dark-100 rounded-[2px] border-2 border-transparent transition-colors duration-200 ease-in-out focus:ring-0 focus:outline-none`}
+          onClick={handleLogout}
+        >
+          <Icon className='mr-3 fill-current' iconId={'log-out'} size={24} />
+          <span>Log Out</span>
+        </button>
       </nav>
     </aside>
   )
