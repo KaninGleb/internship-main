@@ -26,7 +26,8 @@ export const TextArea: FC<TextAreaProps> = ({
   rows = 3,
   id,
 }) => {
-  const textareaId = id ?? useId()
+  const generatedId = useId()
+  const textareaId = id ?? generatedId
 
   return (
     <div className={`flex min-w-[279px] flex-col gap-1 ${className}`}>
