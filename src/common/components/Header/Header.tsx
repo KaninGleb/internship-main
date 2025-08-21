@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, Fragment } from 'react'
+import { Button, Icon } from '@/common/components'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from '@headlessui/react'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
+import { Fragment, useState } from 'react'
+import { flagRussia, flagUK } from 'src/assets/icons'
 import { twMerge } from 'tailwind-merge'
-import { Icon, Button } from '@/common/components'
-import { flagUK, flagRussia } from 'src/assets/icons'
 
 type HeaderPropsType = {
   isAuth: boolean
@@ -34,7 +34,7 @@ export const Header = ({ isAdmin = false, isAuth, notifCounter = 100 }: HeaderPr
   const rightContainerGap = isAuth ? 'gap-[46px]' : 'gap-[36px]'
 
   return (
-    <header className='sticky top-0 z-50 border-b border-[var(--color-dark-300)] bg-[var(--color-dark-700)]'>
+    <header className='sticky top-0 z-50 flex w-screen border-b border-[var(--color-dark-300)] bg-[var(--color-dark-700)]'>
       <div className='mx-auto flex h-[60px] w-full max-w-[1280px] items-center justify-between py-[12px] pr-[64px] pl-[60px]'>
         <Link href='/' className='flex items-end select-none'>
           {isAdmin ? (
