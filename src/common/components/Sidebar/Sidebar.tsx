@@ -1,8 +1,8 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation'
 import { Icon } from '@/common/components'
 import { IconIdType } from '@/common/types'
+import { usePathname, useRouter } from 'next/navigation'
 import { SidebarLink } from './SidebarLink/SidebarLink'
 
 export type LinksType = {
@@ -10,6 +10,7 @@ export type LinksType = {
   label: string
   iconId: IconIdType
   activeIconId: IconIdType
+  disabled: boolean
 }
 
 export const Sidebar = () => {
@@ -27,16 +28,22 @@ export const Sidebar = () => {
   if (!isLoggedIn) return null
 
   const primaryLinks: LinksType[] = [
-    { href: '/', label: 'Feed', iconId: 'home-outline', activeIconId: 'home' },
-    { href: '/create', label: 'Create', iconId: 'plus-square-outline', activeIconId: 'plus-square' },
-    { href: '/profile', label: 'My Profile', iconId: 'person-outline', activeIconId: 'person' },
-    { href: '/messenger', label: 'Messenger', iconId: 'message-circle-outline', activeIconId: 'message-circle' },
-    { href: '/search', label: 'Search', iconId: 'search', activeIconId: 'search' },
+    { href: '/', label: 'Feed', iconId: 'home-outline', activeIconId: 'home', disabled: false },
+    { href: '/create', label: 'Create', iconId: 'plus-square-outline', activeIconId: 'plus-square', disabled: false },
+    { href: '/profile', label: 'My Profile', iconId: 'person-outline', activeIconId: 'person', disabled: false },
+    {
+      href: '/messenger',
+      label: 'Messenger',
+      iconId: 'message-circle-outline',
+      activeIconId: 'message-circle',
+      disabled: false,
+    },
+    { href: '/search', label: 'Search', iconId: 'search', activeIconId: 'search', disabled: false },
   ]
 
   const secondaryLinks: LinksType[] = [
-    { href: '/statistics', label: 'Statistics', iconId: 'trending-up', activeIconId: 'trending-up' },
-    { href: '/favorities', label: 'Favorites', iconId: 'bookmark-outline', activeIconId: 'bookmark' },
+    { href: '/statistics', label: 'Statistics', iconId: 'trending-up', activeIconId: 'trending-up', disabled: false },
+    { href: '/favorities', label: 'Favorites', iconId: 'bookmark-outline', activeIconId: 'bookmark', disabled: false },
   ]
 
   return (
