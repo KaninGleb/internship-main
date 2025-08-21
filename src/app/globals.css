@@ -2,10 +2,19 @@
 @import '@fontsource/inter';
 
 @layer base {
+  :root {
+    --sb-size: 4px;
+    --sb-track: transparent;
+    --sb-thumb: var(--color-dark-300, #333);
+    --sb-thumb-hover: var(--color-light-900, #8d9094);
+  }
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--sb-thumb) var(--sb-track);
   }
 
   body {
@@ -13,5 +22,32 @@
     color: #fff;
     background-color: var(--color-dark-700);
     min-height: 100vh;
+  }
+
+  *::-webkit-scrollbar {
+    width: var(--sb-size);
+    height: var(--sb-size);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--sb-track);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--sb-thumb);
+    border-radius: 3px;
+    background-clip: padding-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: var(--sb-thumb-hover);
+  }
+
+  *::-webkit-scrollbar:horizontal {
+    height: var(--sb-size);
+  }
+
+  *::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 3px;
   }
 }
