@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { cn } from '@/common/utils'
 import { Icon } from '../Icon/Icon'
 import { Loader } from '@/common/components/Loader/Loader'
+import { Typography } from '@/common/components'
 
 type Status = 'default' | 'checked' | 'loading' | 'error' | 'expired'
 
@@ -21,7 +22,7 @@ type RecaptchaProps = {
 
 export const Recaptcha: React.FC<RecaptchaProps> = ({
   className,
-  label = "I'm not a robot",
+  label = 'I’m not a robot',
   initialStatus = 'expired',
   loadingMs = 700,
   expireAfterMs = 90_000,
@@ -115,68 +116,60 @@ export const Recaptcha: React.FC<RecaptchaProps> = ({
         )}
 
         <div className='flex w-full justify-between'>
-          <div className='flex items-center gap-5'>
+          <div className='flex items-center gap-4'>
             <div
               className={cn(
-                'relative ml-1 flex h-5 w-5 items-center justify-center rounded-[2px] border border-transparent bg-white hover:border-gray-400',
+                'relative ml-1 flex h-6 w-6 items-center justify-center rounded-[2px] border border-transparent bg-white hover:border-gray-400',
                 isChecked || isLoading ? 'bg-zinc-900' : '',
               )}
               aria-hidden
             >
               {isChecked && (
                 <Icon
-                  iconId={'checkmark'}
+                  iconId={'reCaptcha-checkmark'}
                   className={cn(
-                    'h-[22px] w-[28px] overflow-visible [stroke-linecap:butt] [stroke-linejoin:miter] [stroke-miterlimit:10]',
-                    'scale-150 fill-none stroke-[#2E7D32] [stroke-width:2] transition',
+                    'h-[28px] w-[28px] shrink-0 translate-y-[1px]',
+                    'overflow-visible transition',
+                    'fill-[#2E7D32] stroke-none',
                   )}
                 />
               )}
-              {/*{isChecked && (*/}
-              {/*  <svg*/}
-              {/*    viewBox="0 0 40 28"*/}
-              {/*    aria-hidden="true"*/}
-              {/*    className={cn(*/}
-              {/*      'h-[22px] w-[30px] overflow-visible',*/}
-              {/*      'fill-none stroke-[#2E7D32] [stroke-width:5] [stroke-linecap:square] [stroke-linejoin:miter]'*/}
-              {/*    )}*/}
-              {/*  >*/}
-              {/*    <path d="M6 15 L16 25 L37 5" />*/}
-              {/*  </svg>*/}
-              {/*)}*/}
-
               {isLoading && <Loader size={28} durationMs={1400} className='text-blue-500' />}
             </div>
 
-            <span
+            <Typography
               className={cn(
-                'text-base leading-tight font-semibold text-white',
+                'font-["Roboto",sans-serif] text-[16px] leading-[14px] font-medium',
                 isLoading || isExpired ? 'text-zinc-200' : 'text-zinc-100',
               )}
             >
               {label}
-            </span>
+            </Typography>
           </div>
-          <div className='flex flex-col gap-[4px] text-[10px] leading-none text-zinc-300'>
-            <Icon iconId='recaptcha-without-text' size={60} className='ml-[6px]' />
-            <span className='-mt-[15px] mr-[15px] text-[14px] leading-[1] font-medium text-zinc-100 md:-mt-[30px]'>
-              reCAPTCHA
-            </span>
-            <div className='mr-[15px] text-[10px] leading-[1] font-medium text-zinc-300'>
-              <a href='' target='_blank' rel='' className='underline-offset-2 hover:text-zinc-100 hover:underline'>
-                Privacy
-              </a>
-              <span className='px-1'>-</span>
-              <span className='text-[10px] leading-none text-zinc-300'>Terms</span>
+
+          <div className='rounded-lg p-4'>
+            <div className='flex flex-col items-center text-center'>
+              <Icon iconId='recaptcha-without-text' size={48} className='mb-[10px] shrink-0' />
+              <span className='text-[12px] leading-[12px] font-medium text-zinc-100'>reCAPTCHA</span>
+              <div className='mt-[4px] inline-flex items-center gap-[2px] text-[10px] leading-[10px] font-medium whitespace-nowrap text-zinc-300'>
+                <a
+                  href=''
+                  target='_blank'
+                  rel=''
+                  className='text-[8px] underline-offset-2 hover:text-zinc-100 hover:underline'
+                >
+                  Privacy
+                </a>
+                <span className='relative -top-[1px]'>-</span>
+                <span className='text-[8px] leading-none text-zinc-300'>Terms</span>
+              </div>
             </div>
           </div>
         </div>
       </button>
 
       {status === 'expired' && (
-        <p className='mt-2 whitespace-pre-line text-[12px] leading-[1] text-red-500'>
-          {errorText}
-        </p>
+        <p className='mt-2 text-[12px] leading-[1] whitespace-pre-line text-red-500'>{errorText}</p>
       )}
     </div>
   )
