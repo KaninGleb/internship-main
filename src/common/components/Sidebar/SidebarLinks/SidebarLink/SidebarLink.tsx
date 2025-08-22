@@ -34,7 +34,7 @@ export const SidebarLink = ({ links, pathname }: SidebarLinkProps) => {
       {disabled ? (
         <span className={commonClasses}>{linkContent}</span>
       ) : href ? (
-        <Link className={commonClasses} href={href} aria-disabled={disabled}>
+        <Link className={commonClasses} href={href}>
           {linkContent}
         </Link>
       ) : null}
