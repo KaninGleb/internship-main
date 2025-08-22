@@ -23,12 +23,14 @@ export const Tabs = ({ tabs, children }: TabsProps) => {
             disabled={tab.disabled}
             className={({ selected }) =>
               cn(
-                'w-full cursor-pointer border-b-2 border-[var(--color-dark-100)] px-6 py-1.5 text-base font-semibold duration-300 hover:bg-[var(--color-accent-900)]/15 focus:outline-2 focus:outline-[var(--color-accent-700)] focus:not-data-focus:outline-none',
+                'w-full cursor-pointer px-6 py-1.5 text-base font-semibold duration-300 hover:bg-[var(--color-accent-900)]/15',
+                'border-b-2 border-[var(--color-dark-100)]',
+                'focus:outline-2 focus:outline-[var(--color-accent-700)] focus:not-data-focus:outline-none',
                 selected
                   ? 'ease border-b-2 border-[var(--color-accent-500)] text-[var(--color-accent-500)] transition focus:rounded-xs'
                   : 'text-[var(--color-dark-100)]',
                 tab.disabled && 'cursor-not-allowed text-[var(--color-dark-300)] hover:bg-transparent',
-                tab.disabled && selected && 'text-[var(--color-accent-900)]',
+                tab.disabled && selected && 'border-[var(--color-accent-900)] text-[var(--color-accent-900)]',
               )
             }
           >
