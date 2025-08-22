@@ -10,8 +10,8 @@ type SidebarLinkProps = {
 export const SidebarLinks = ({ links, pathname, className }: SidebarLinkProps) => {
   return (
     <ul className={`${className} inline-flex flex-col gap-5`}>
-      {links.map((links) => (
-        <SidebarLink links={links} pathname={pathname} />
+      {links.map((links, index) => (
+        <SidebarLink key={`link/${index}`} links={links} pathname={pathname} />
       ))}
     </ul>
   )
