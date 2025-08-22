@@ -27,6 +27,7 @@ export const iconIds = [
   'arrow-back',
   'arrow-forward',
   'checkmark',
+  'reCaptcha-checkmark',
   'done-all',
   'arrow-ios-back',
   'arrow-ios-forward',
@@ -92,5 +93,5 @@ export const iconIds = [
   'brave',
   'microsoft-edge',
   'yandex',
-  'uc-browser'
+  'uc-browser',
 ] as const
