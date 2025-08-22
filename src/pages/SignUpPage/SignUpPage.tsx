@@ -1,16 +1,16 @@
 import { useState } from 'react'
 import { Checkbox } from '@headlessui/react'
-import { Icon, Input, Button } from '@/common/components'
+import { Icon, Input, Button, Typography, Card } from '@/common/components'
 
 export const SignUpPage = () => {
   const [enabled, setEnabled] = useState(true)
 
   return (
     <div className='m-auto flex max-w-[378px] items-center justify-center bg-black'>
-      <div className='bg-dark-700 border-dark-300 w-full max-w-md rounded-lg border p-8'>
-        <h2 className='mb-4 flex flex-col items-center justify-center text-xl text-[20px] font-semibold text-white'>
+      <Card className={'w-full max-w-md p-8'}>
+        <Typography className='mb-4 flex flex-col items-center justify-center text-xl text-[20px] font-semibold text-white'>
           Sign Up
-        </h2>
+        </Typography>
 
         <div className='mb-6 flex justify-center gap-15'>
           <a href={'https://www.google.com/'}>
@@ -40,27 +40,31 @@ export const SignUpPage = () => {
             </svg>
           </Checkbox>
 
-          <p className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'>
+          <Typography
+            as='p'
+            variant='p'
+            className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'
+          >
             I agree to the{' '}
-            <a href={'#'} className={'text-info-300 underline'}>
+            <Typography as='a' href={'#'} variant='link'>
               Terms of Service
-            </a>{' '}
+            </Typography>{' '}
             and{' '}
-            <a href={'#'} className={'text-info-300 underline'}>
+            <Typography as='a' href={'#'} variant='link'>
               Privacy Policy
-            </a>
-          </p>
+            </Typography>
+          </Typography>
         </div>
 
         <Button className={'w-full'} variant={'primary'} size={'large'} children={'Sign up'} />
 
         <div className='m-auto mt-4 text-center'>
-          <a href={'#'}>
-            <p className='mb-1 text-white'>Do you have an account?</p>
-          </a>
+          <Typography as={'a'} href={'#'} variant='p' className='mb-1 text-white'>
+            Do you have an account?
+          </Typography>
           <Button className={'text-info-500 w-full'} size={'large'} children={'Sign in'} />
         </div>
-      </div>
+      </Card>
     </div>
   )
 }
