@@ -7,4 +7,4 @@ export { Input } from './Input/Input'
 export { SelectBox } from './SelectBox/SelectBox'
 export { Sidebar } from './Sidebar/Sidebar'
 export { Card } from './Cards/Card'
-
+export { FeedbackLayout } from './FeedbackLayout/FeedbackLayout'
