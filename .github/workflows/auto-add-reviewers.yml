@@ -2,7 +2,7 @@ name: Auto Add Reviewers
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [ opened, reopened, synchronize ]
 
 jobs:
   add_reviewers:
@@ -16,24 +16,34 @@ jobs:
             const pr = context.payload.pull_request;
             const owner = context.repo.owner;
             const repo = context.repo.repo;
-            const TEAM_LEAD = "KaninGleb";
+            const TEAM_LEAD = 'KaninGleb';
+            const USERS_TO_EXCLUDE = ['it-incubator-jenkins'];
 
             const collaborators = await github.rest.repos.listCollaborators({
               owner,
               repo,
-              affiliation: "all"
+              affiliation: 'all'
             });
 
             let reviewers = collaborators.data
               .map(user => user.login)
-              .filter(login => login !== pr.user.login && !login.endsWith('[bot]'));
+              .filter((login) => {
+                return login !== pr.user.login &&
+                  !login.endsWith('[bot]') &&
+                  !USERS_TO_EXCLUDE.includes(login);
+              });
 
-            if (TEAM_LEAD !== pr.user.login && !TEAM_LEAD.endsWith('[bot]') && !reviewers.includes(TEAM_LEAD)) {
+            if (
+              TEAM_LEAD !== pr.user.login && 
+              !TEAM_LEAD.endsWith('[bot]') && 
+              !reviewers.includes(TEAM_LEAD) && 
+              !USERS_TO_EXCLUDE.includes(TEAM_LEAD)
+            ) {
               reviewers.unshift(TEAM_LEAD);
             }
 
             if (reviewers.length === 0) {
-              console.log("No reviewers to add.");
+              console.log('No reviewers to add.');
               return;
             }
 
