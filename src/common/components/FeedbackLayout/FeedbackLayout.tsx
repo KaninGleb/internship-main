@@ -20,10 +20,7 @@ const FeedbackLayoutTitle = ({ className, ...props }: ComponentProps<typeof Typo
   return (
     <Typography
       variant='h3'
-      className={cn(
-        'pb-5 text-center text-xl leading-[var(--line-height-l)] font-[var(--font-weight-bold)]',
-        className,
-      )}
+      className={cn('pb-5 text-center text-xl leading-[1.8] font-[var(--font-weight-bold)]', className)}
       {...props}
     />
   )
@@ -51,7 +48,7 @@ const FeedbackLayoutActions = ({
   onSubmit?: (e: FormEvent<HTMLFormElement>) => void
 }) => {
   return (
-    <form className={cn('flex w-full flex-col items-center', className)} onSubmit={onSubmit}>
+    <form className={cn('flex w-full flex-col items-center', className)} onSubmit={onSubmit} aria-required noValidate>
       {children}
     </form>
   )
