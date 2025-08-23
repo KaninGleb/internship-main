@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Button, FeedbackLayout } from '@/common/components'
 import { gitlByTheWall } from '@/assets/images'
 
-export const SignUpCongratulations = () => {
+const SignUpCongratulations = () => {
   return (
     <FeedbackLayout.Root>
       <FeedbackLayout.Title>Congratulations!</FeedbackLayout.Title>
@@ -19,3 +19,5 @@ export const SignUpCongratulations = () => {
     </FeedbackLayout.Root>
   )
 }
+
+export default SignUpCongratulations
