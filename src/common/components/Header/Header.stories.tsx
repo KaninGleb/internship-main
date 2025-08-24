@@ -25,7 +25,7 @@ const meta: Meta<typeof Header> = {
   tags: ['autodocs'],
 }
 
-export default meta;
+export default meta
 
 type Story = StoryObj<typeof Header>
 
