@@ -1,5 +1,6 @@
-import { Input } from './Input'
 import type { Meta, StoryObj } from '@storybook/nextjs'
+import { useState } from 'react'
+import { Input } from '@/common/components'
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -8,7 +9,7 @@ const meta: Meta<typeof Input> = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['password', 'email', 'search'],
+      options: ['email', 'password', 'search'],
       description: 'Тип инпута',
     },
     placeholder: {
@@ -16,11 +17,11 @@ const meta: Meta<typeof Input> = {
       description: 'Плейсхолдер',
     },
     value: {
-      control: 'text',
+      control: false,
       description: 'Значение инпута',
     },
     onChange: {
-      action: 'changed',
+      control: false,
       description: 'Обработчик изменения',
     },
     label: {
@@ -39,6 +40,11 @@ const meta: Meta<typeof Input> = {
       control: 'text',
       description: 'TailWind style',
     },
+    widthSize: {
+      control: 'select',
+      options: ['sm', 'full'],
+      description: 'Размер ширины инпута',
+    },
   },
   parameters: {
     backgrounds: { default: 'black' },
@@ -49,7 +55,13 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+const Template = (args: React.ComponentProps<typeof Input>) => {
+  const [value, setValue] = useState(args.value || '')
+  return <Input {...args} value={value} onChange={(e) => setValue(e.target.value)} />
+}
+
 export const Default: Story = {
+  render: Template,
   args: {
     type: 'email',
     placeholder: 'write text',
@@ -61,6 +73,7 @@ export const Default: Story = {
 }
 
 export const Password: Story = {
+  render: Template,
   args: {
     ...Default.args,
     type: 'password',
@@ -70,6 +83,7 @@ export const Password: Story = {
 }
 
 export const Search: Story = {
+  render: Template,
   args: {
     ...Default.args,
     type: 'search',
@@ -79,26 +93,47 @@ export const Search: Story = {
 }
 
 export const WithError: Story = {
+  render: Template,
   args: {
     ...Default.args,
-    error: 'Неверный email',
-    value: 'invalid@email',
+    error: 'Неверный ввод',
+    value: 'invalid input',
   },
 }
 
 export const Disabled: Story = {
+  render: Template,
   args: {
     ...Default.args,
     disabled: true,
-    value: 'disabled@value.com',
+    value: 'disabled value',
   },
 }
 
 export const WithLabelAndValue: Story = {
+  render: Template,
   args: {
     ...Default.args,
     label: 'Имя пользователя',
     value: 'user@example.com',
     placeholder: 'Введите имя',
+  },
+}
+
+export const SmallWidth: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    widthSize: 'sm',
+    placeholder: 'Small width',
+  },
+}
+
+export const FullWidth: Story = {
+  render: Template,
+  args: {
+    ...Default.args,
+    widthSize: 'full',
+    placeholder: 'Full width',
   },
 }

@@ -1,8 +1,5 @@
-import { Input } from '@/components/Input/Input'
-import React, { useState } from 'react'
-import { Button } from '@/components/Button/Button'
-import { CheckBox } from '@/components/Check-box/Check-box'
-import { Icon } from '@/components/Icon/Icon'
+import { Button, Icon, Input } from '@/common/components'
+import { useState } from 'react'
 
 export const SignUpPage = () => {
   const [enabled, setEnabled] = useState(true)
@@ -23,16 +20,42 @@ export const SignUpPage = () => {
           </a>
         </div>
 
-        <Input className={'w-full'} label={'Name'} placeholder={'Epam11'} />
+        <Input
+          value={'Epam11'}
+          onChange={(e) => console.log(e)}
+          widthSize={'full'}
+          label={'Name'}
+          placeholder={'Epam11'}
+          disabled={false}
+        />
 
-        <Input className={'w-full'} type={'email'} label='Email' placeholder={'Epam@epam.com'} />
+        <Input
+          value={'Epam@epam.com'}
+          onChange={(e) => console.log(e)}
+          widthSize={'full'}
+          type={'email'}
+          label='Email'
+          placeholder={'Epam@epam.com'}
+        />
 
-        <Input className={'w-full'} type={'password'} label={'Password'} />
+        <Input
+          value={'12345678'}
+          onChange={(e) => console.log(e)}
+          widthSize={'full'}
+          type={'password'}
+          label={'Password'}
+        />
 
-        <Input className={'w-full'} type={'password'} label={'Password confirmation'} />
+        <Input
+          value={'12345678'}
+          onChange={(e) => console.log(e)}
+          widthSize={'full'}
+          type={'password'}
+          label={'Password confirmation'}
+        />
 
         <div className='mb-4 flex items-center'>
-          <CheckBox checked={enabled} onChange={setEnabled} disabled={false} />
+          {/*<CheckBox checked={enabled} onChange={setEnabled} disabled={false} />*/}
 
           <p className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'>
             I agree to the{' '}
