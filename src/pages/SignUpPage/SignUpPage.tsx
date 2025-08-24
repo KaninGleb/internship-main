@@ -1,8 +1,5 @@
-import { Input } from '@/components/Input/Input'
-import React, { useState } from 'react'
-import { Button } from '@/components/Button/Button'
-import { CheckBox } from '@/components/Check-box/Check-box'
-import { Icon } from '@/components/Icon/Icon'
+import { Button, Icon, Input } from '@/common/components'
+import { useState } from 'react'
 
 export const SignUpPage = () => {
   const [enabled, setEnabled] = useState(true)
@@ -32,7 +29,7 @@ export const SignUpPage = () => {
         <Input className={'w-full'} type={'password'} label={'Password confirmation'} />
 
         <div className='mb-4 flex items-center'>
-          <CheckBox checked={enabled} onChange={setEnabled} disabled={false} />
+          {/*<CheckBox checked={enabled} onChange={setEnabled} disabled={false} />*/}
 
           <p className='w-full text-[12px] font-[var(--font-family-primary)] text-white italic'>
             I agree to the{' '}
@@ -46,13 +43,13 @@ export const SignUpPage = () => {
           </p>
         </div>
 
-        <Button className={'w-full'} variant={'primary'} size={'large'} children={'Sign up'} />
+        <Button fullWidth={true} variant={'primary'} size={'large'} children={'Sign up'} />
 
         <div className='m-auto mt-4 text-center'>
           <a href={'#'}>
             <p className='mb-1 text-white'>Do you have an account?</p>
           </a>
-          <Button className={'text-info-500 w-full'} size={'large'} children={'Sign in'} />
+          <Button fullWidth={true} size={'large'} children={'Sign in'} />
         </div>
       </div>
     </div>
