@@ -3,22 +3,31 @@ import { Checkbox } from '@headlessui/react'
 import { Icon } from '@/common/components'
 import { cn } from '@/common/utils'
 
-const baseStyles =
-  'relative block w-4 h-4 rounded-[2px] transition-all duration-200 ease-in-out border-2 border-white bg-transparent cursor-pointer'
+const baseStyles = `relative block w-4 h-4 rounded-[2px] transition-all duration-200 ease-in-out border-2 border-white
+bg-transparent cursor-pointer`
 
 const svgStyles =
-  '[&_svg]:stroke-black [&_svg]:opacity-0 [&_svg]:absolute [&_svg]:top-0 [&_svg]:left-0 [&_svg]:w-full [&_svg]:h-full [&_svg]:transition-opacity [&_svg]:duration-200 [&_svg]:ease-in-out'
+  'stroke-black opacity-0 absolute top-0 left-0 w-full h-full transition-opacity duration-200 ease-in-out'
 
 const hoverStyles = cn(
-  'hover:before:content-[""] hover:before:absolute hover:before:top-1/2 hover:before:left-1/2 hover:before:w-8 hover:before:h-8 hover:before:rounded-full hover:before:-translate-x-1/2 hover:before:-translate-y-1/2 hover:before:bg-[rgb(from_var(--color-dark-300)_r_g_b_/_70%)]',
+  'hover:before:content-[""] hover:before:absolute hover:before:top-1/2 hover:before:left-1/2',
+  'hover:before:w-8 hover:before:h-8 hover:before:rounded-full hover:before:-translate-x-1/2',
+  'hover:before:-translate-y-1/2 hover:before:bg-[rgb(from_var(--color-dark-300)_r_g_b_/_70%)]',
 )
 
 const activeStyles = cn(
-  'has-[&>:active]:before:content-[""] has-[&>:active]:before:absolute has-[&>:active]:before:top-1/2 has-[&>:active]:before:left-1/2 has-[&>:active]:before:w-8 has-[&>:active]:before:h-8 has-[&>:active]:before:rounded-full has-[&>:active]:before:-translate-x-1/2 has-[&>:active]:before:-translate-y-1/2 has-[&>:active]:before:bg-[rgb(from_var(--color-dark-100)_r_g_b_/_70%)]',
+  'active:before:content-[""] active:before:absolute active:before:top-1/2',
+  'active:before:left-1/2 active:before:w-8 active:before:h-8',
+  'active:before:rounded-full',
+  'active:before:-translate-x-1/2 active:before:-translate-y-1/2',
+  'active:before:bg-[rgb(from_var(--color-dark-100)_r_g_b_/_70%)]',
 )
 
 const focusStyles = cn(
-  'focus-within:before:content-[""] focus-within:before:absolute focus-within:before:top-1/2 focus-within:before:left-1/2 focus-within:before:w-8 focus-within:before:h-8 focus-within:before:rounded-full focus-within:before:-translate-x-1/2 focus-within:before:-translate-y-1/2 focus-within:before:bg-dark-500',
+  'focus-within:before:content-[""] focus-within:before:absolute',
+  'focus-within:before:top-1/2 focus-within:before:left-1/2 focus-within:before:w-8',
+  'focus-within:before:h-8 focus-within:before:rounded-full focus-within:before:-translate-x-1/2',
+  'focus-within:before:-translate-y-1/2 focus-within:before:bg-dark-500',
 )
 
 const pseudoStyles = cn(hoverStyles, activeStyles, focusStyles)
@@ -60,11 +69,11 @@ export const CheckBox = ({ checked, onChange, disabled = false, className }: Che
         ref={checkboxRef}
         checked={checked}
         onChange={onChange}
-        className={cn(baseStyles, svgStyles, 'active:bg-white', getVariantClasses(checked, disabled), className)}
+        className={cn(baseStyles, 'active:bg-white', getVariantClasses(checked, disabled), className)}
         disabled={disabled}
         data-checked={checked || undefined}
       >
-        <Icon iconId='checkmark' size={14} color={disabled && checked ? 'white' : 'black'} />
+        <Icon iconId='checkmark' size={14} color={disabled && checked ? 'white' : 'black'} className={svgStyles} />
       </Checkbox>
     </span>
   )
