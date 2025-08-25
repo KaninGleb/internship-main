@@ -1,5 +1,5 @@
 import { Input } from './Input'
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Meta, StoryObj } from '@storybook/nextjs'
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -35,9 +35,13 @@ const meta: Meta<typeof Input> = {
       control: 'boolean',
       description: 'Отключён ли инпут',
     },
+    className: {
+      control: 'text',
+      description: 'TailWind style',
+    },
   },
   parameters: {
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'black' },
   },
 }
 

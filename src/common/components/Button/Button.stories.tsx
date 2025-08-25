@@ -1,5 +1,5 @@
+import { Meta, StoryObj } from '@storybook/nextjs'
 import { Button } from './Button'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -32,15 +32,19 @@ const meta: Meta<typeof Button> = {
       control: 'text',
       description: 'Содержимое кнопки',
     },
+    className: {
+      control: 'text',
+      description: 'TailWind style',
+    },
   },
   parameters: {
-    backgrounds: { default: 'light' },
+    backgrounds: { default: 'black' },
   },
 }
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
   args: {
