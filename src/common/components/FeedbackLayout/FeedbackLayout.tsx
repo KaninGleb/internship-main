@@ -5,12 +5,7 @@ import { cn } from '@/common/utils'
 
 const FeedbackLayoutRoot = ({ children, className }: { children: ReactNode; className?: string }) => {
   return (
-    <div
-      className={cn(
-        'bg-dark-700 flex min-h-screen flex-col items-center pt-8.75 font-[var(--font-family-primary)] text-white',
-        className,
-      )}
-    >
+    <div className={cn('bg-dark-700 font-inter flex min-h-screen flex-col items-center pt-8.75 text-white', className)}>
       {children}
     </div>
   )
@@ -18,24 +13,12 @@ const FeedbackLayoutRoot = ({ children, className }: { children: ReactNode; clas
 
 const FeedbackLayoutTitle = ({ className, ...props }: ComponentProps<typeof Typography>) => {
   return (
-    <Typography
-      variant='h3'
-      className={cn('pb-5 text-center text-xl leading-[1.8] font-[var(--font-weight-bold)]', className)}
-      {...props}
-    />
+    <Typography variant='h3' className={cn('pb-5 text-center text-xl leading-[1.8] font-bold', className)} {...props} />
   )
 }
 
 const FeedbackLayoutMessage = ({ className, ...props }: ComponentProps<typeof Typography>) => {
-  return (
-    <Typography
-      className={cn(
-        'text-center text-base leading-[var(--line-height-m)] font-[var(--font-weight-regular)]',
-        className,
-      )}
-      {...props}
-    />
-  )
+  return <Typography className={cn('font-inter text-center text-base leading-6', className)} {...props} />
 }
 
 const FeedbackLayoutActions = ({
