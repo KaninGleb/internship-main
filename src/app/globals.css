@@ -1,5 +1,13 @@
-@import 'tailwindcss';
 @import '@fontsource/inter';
+@import '@fontsource/roboto';
+@import '@fontsource/barlow';
+@import 'tailwindcss';
+
+@theme {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-roboto: 'Roboto', system-ui, sans-serif;
+  --font-barlow: 'Barlow', system-ui, sans-serif;
+}
 
 @layer base {
   * {
@@ -9,7 +17,7 @@
   }
 
   body {
-    font-family: Inter, system-ui, sans-serif;
+    font-family: var(--font-inter);
     color: #fff;
     background-color: var(--color-dark-700);
     min-height: 100vh;
